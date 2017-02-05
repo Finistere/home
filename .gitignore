@@ -1,0 +1,11 @@
+/*
+!.gitignore
+!.bashrc
+
+# Config
+!.config/
+.config/*
+
+# nvin
+!.config/nvim/
+.config/nvim/plugged/*
