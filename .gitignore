@@ -1,6 +1,7 @@
 /*
 !.gitignore
 !.bashrc
+!.zshrc
 
 # Config
 !.config/
@@ -9,3 +10,6 @@
 # nvin
 !.config/nvim/
 .config/nvim/plugged/*
+
+# scripts
+!scripts/
