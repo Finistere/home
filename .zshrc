@@ -87,13 +87,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# Terminix
+# Terminix/Tilix
 # Necessary for Ubuntu (at least) for the split screen
 # (Terminal opens in current folder)
 # https://gnunn1.github.io/terminix-web/manual/vteconfig/
-if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+if [ $TILIX_ID ] || [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
+
 
 # Home git
 alias home='git --work-tree=$HOME --git-dir=$HOME/.home'

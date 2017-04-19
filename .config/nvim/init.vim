@@ -85,7 +85,7 @@ set nostartofline       " Do not jump to first character with page commands.
 
 " *** Solarized ***
 set termguicolors
-set background=dark
+set background=light
 
 " ===============
 " ***  VARS   ***
