@@ -26,6 +26,7 @@ Libraries
 
 [Matplotlib](http://matplotlib.org/):
 - [Effectively Using Matplotlib](http://pbpython.com/effective-matplotlib.html)
+- [Speeding up Matplotlib](http://bastibe.de/2013-05-30-speeding-up-matplotlib.html): Update only parts of the figure. (2013, may be deprecated)
 - [Seaborn](http://seaborn.pydata.org/): easier plotting library built on top of Matplotlib
 
 Others:
