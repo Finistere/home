@@ -9,7 +9,18 @@ Resources
 
 - [Python-oop](https://github.com/metaperl/python-oop)
 
-### Tutorials
+### Code training
+
+- [Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
+
+
+Libraries
+---------
+
+### Computing
+
+- [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
+- [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html): tools by Continuum Analytics (Dask is a part of it)
 
 #### Plotting
 
@@ -24,15 +35,14 @@ Others:
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
 
+#### Profiling
+
+standard tools: line_profiler, memory_profiler
+
+- [SnakeViz](https://jiffyclub.github.io/snakeviz/#snakeviz): Nice visual profiling (CPU)
+
+#### Software Engineering
+
+- [Siringa](https://github.com/h2non/siringa): minimalist depency injection (new)
 
 
-### Code training
-
-- [Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
-
-Libraries
----------
-
-### Computing
-
-Dask
