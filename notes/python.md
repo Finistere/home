@@ -29,7 +29,11 @@ Libraries
 - [Speeding up Matplotlib](http://bastibe.de/2013-05-30-speeding-up-matplotlib.html): Update only parts of the figure. (2013, may be deprecated)
 - [Seaborn](http://seaborn.pydata.org/): easier plotting library built on top of Matplotlib
 
-Others:
+Faster:
+- [PyQtGraph](http://www.pyqtgraph.org/): built on Qt
+- [VisPy](http://vispy.org/index.html): built on OpenGL (GPU-based)
+
+More Interactive:
 - [Bokeh](http://bokeh.pydata.org/en/latest/): need to check, seems awesome
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
