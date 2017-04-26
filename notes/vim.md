@@ -4,8 +4,8 @@ VIM
 Plugins
 -------
 
-- Management: [vim-plug](https://github.com/junegunn/vim-plug)
-- Search Engine: [VimAwesome](http://vimawesome.com/)
+Management: [vim-plug](https://github.com/junegunn/vim-plug)
+Search Engine: [VimAwesome](http://vimawesome.com/)
 
 
 StackOverflow & co.
