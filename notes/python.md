@@ -22,7 +22,9 @@ Libraries
 [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html) (tools by Continuum Analytics):
 - [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
 
-#### Plotting
+[Cachier](https://github.com/shaypal5/cachier): local / cross-machine cache
+
+### Plotting
 
 [Matplotlib](http://matplotlib.org/):
 - [Effectively Using Matplotlib](http://pbpython.com/effective-matplotlib.html)
@@ -38,13 +40,13 @@ More Interactive:
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
 
-#### Profiling
+### Profiling
 
 standard tools: line_profiler, memory_profiler
 
 [SnakeViz](https://jiffyclub.github.io/snakeviz/#snakeviz): Nice visual profiling (CPU)
 
-#### Software Engineering
+### Software Engineering
 
 [Siringa](https://github.com/h2non/siringa): minimalist depency injection (new)
 
