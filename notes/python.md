@@ -20,6 +20,7 @@ Libraries
 ### Tests
 
 [Coverage](https://github.com/nedbat/coveragepy): test code coverage
+[Pylint](https://github.com/PyCQA/pylint): how healthy is a code base ?
 
 ### Computing
 
