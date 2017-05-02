@@ -17,6 +17,10 @@ Resources
 Libraries
 ---------
 
+### Tests
+
+[Coverage](https://github.com/nedbat/coveragepy): test code coverage
+
 ### Computing
 
 [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html) (tools by Continuum Analytics):
