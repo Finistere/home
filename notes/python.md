@@ -59,4 +59,7 @@ standard tools: line_profiler, memory_profiler
 
 [Siringa](https://github.com/h2non/siringa): minimalist depency injection (new)
 
+### Packaging
 
+[Foster](https://github.com/hugollm/foster) (brand new)
+[Flit](https://github.com/takluyver/flit)
