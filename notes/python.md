@@ -45,6 +45,10 @@ More Interactive:
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
 
+### Templating
+
+[Jinja2](https://github.com/pallets/jinja)
+
 ### Profiling
 
 standard tools: line_profiler, memory_profiler
