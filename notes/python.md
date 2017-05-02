@@ -45,6 +45,9 @@ More Interactive:
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
 
+ggpy seems to be paused (rewriting it to be closer to R) or dead ?
+[Altair](https://altair-viz.github.io/): based on [Vega-lite](https://vega.github.io/vega-lite/), simple syntax.
+
 ### Templating
 
 [Jinja2](https://github.com/pallets/jinja)
