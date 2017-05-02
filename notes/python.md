@@ -28,6 +28,7 @@ Libraries
 - [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
 
 [Cachier](https://github.com/shaypal5/cachier): local / cross-machine cache
+[SortedContainers](https://github.com/grantjenks/sorted_containers): sorted list, dict, etc..
 
 ### Plotting
 
