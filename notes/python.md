@@ -8,7 +8,7 @@ Resources
 ### General
 
 [Python-oop](https://github.com/metaperl/python-oop)
-
+[Courses list](http://bafflednerd.com/learn-python-online/)
 
 ### Code training
 
@@ -28,10 +28,28 @@ Libraries
 
 [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html) (tools by Continuum Analytics):
 - [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
+- [Odo](https://github.com/blaze/odo): Migrate data efficiently (ex: DataFrame -> Postgres)
+
+[NetworkX](https://github.com/networkx/networkx): Graph manipulation
 
 [Cachier](https://github.com/shaypal5/cachier): local / cross-machine cache
 
 [SortedContainers](https://github.com/grantjenks/sorted_containers): sorted list, dict, etc..
+
+Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([examples](https://wiki.python.org/moin/PythonSpeed/PerformanceTips))
+
+
+### Network
+
+`socketserver` module to easily create a simple server with sockets.
+
+
+### Web
+
+#### API
+
+- [API Star](https://github.com/tomchristie/apista): fast and easy (brand new)
+- [Hug](https://github.com/timothycrosley/hug): production ready, similar concepts
 
 
 ### Plotting
