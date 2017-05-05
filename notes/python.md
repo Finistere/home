@@ -8,11 +8,15 @@ Resources
 ### General
 
 [Python-oop](https://github.com/metaperl/python-oop)
+
 [Courses list](http://bafflednerd.com/learn-python-online/)
+
+[Hitchhiker’s Guide](http://docs.python-guide.org/en/latest/)
 
 ### Code training
 
 [Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
+
 [100 days of algorithms](https://github.com/coells/100days)
 
 Libraries
