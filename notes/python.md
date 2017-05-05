@@ -40,10 +40,11 @@ Libraries
 Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([examples](https://wiki.python.org/moin/PythonSpeed/PerformanceTips))
 
 
-### Network
+### Network/Communication
 
 `socketserver` module to easily create a simple server with sockets.
 
+[Delegator](https://github.com/kennethreitz/delegator.py): better API than `subprocess`
 
 ### Web
 
