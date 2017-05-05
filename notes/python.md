@@ -13,7 +13,7 @@ Resources
 ### Code training
 
 [Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
-
+[100 days of algorithms](https://github.com/coells/100days)
 
 Libraries
 ---------
@@ -23,6 +23,7 @@ Libraries
 [Coverage](https://github.com/nedbat/coveragepy): test code coverage
 [Pylint](https://github.com/PyCQA/pylint): how healthy is a code base ?
 
+[Faker](https://github.com/joke2k/faker): Generate fake data (like address, names, etc...)
 
 ### Computing
 
