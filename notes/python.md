@@ -102,3 +102,16 @@ standard tools: line_profiler, memory_profiler
 [Foster](https://github.com/hugollm/foster) (brand new)
 
 [Flit](https://github.com/takluyver/flit)
+
+
+### CLI
+
+[Prompt Toolkit](https://github.com/jonathanslenders/python-prompt-toolkit): powerful library to create interactive CLI
+
+[Pygments](http://pygments.org/): Syntax highlighter (to combine with Prompt)
+
+[Click](https://github.com/pallets/click): CLI creator with decorators
+
+[Plac](https://github.com/micheles/plac): CLI creator with annotations (not sure if still active)
+
+[FuzzyFinder](https://github.com/amjith/fuzzyfinder): Vim Ctrl-P like search in a set of words
