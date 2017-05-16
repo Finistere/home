@@ -96,6 +96,8 @@ standard tools: line_profiler, memory_profiler
 
 [Siringa](https://github.com/h2non/siringa): minimalist depency injection (new)
 
+[wrapt](https://github.com/GrahamDumpleton/wrapt): create decorators for instance  methods, function, etc.
+
 
 ### Packaging
 
@@ -115,3 +117,11 @@ standard tools: line_profiler, memory_profiler
 [Plac](https://github.com/micheles/plac): CLI creator with annotations (not sure if still active)
 
 [FuzzyFinder](https://github.com/amjith/fuzzyfinder): Vim Ctrl-P like search in a set of words
+
+
+### DataScience
+
+#### Stats
+
+[statsmodel](http://www.statsmodels.org/stable/index.html): seems kinda hard to understand ([tutorial](https://tomaugspurger.github.io/modern-7-timeseries.html) ?)
+
