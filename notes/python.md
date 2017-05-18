@@ -98,6 +98,9 @@ standard tools: line_profiler, memory_profiler
 
 [wrapt](https://github.com/GrahamDumpleton/wrapt): create decorators for instance  methods, function, etc.
 
+[attrs](https://attrs.readthedocs.io/en/stable/index.html): non-boilerplate way to define attributes
+
+[structlog](https://github.com/hynek/structlog): easier logging
 
 ### Packaging
 
@@ -125,3 +128,6 @@ standard tools: line_profiler, memory_profiler
 
 [statsmodel](http://www.statsmodels.org/stable/index.html): seems kinda hard to understand ([tutorial](https://tomaugspurger.github.io/modern-7-timeseries.html) ?)
 
+#### Maths
+
+[SymPy](http://www.sympy.org/en/index.html): Symbolic mathematics
