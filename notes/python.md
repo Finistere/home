@@ -57,6 +57,10 @@ Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([exam
 - [API Star](https://github.com/tomchristie/apista): fast and easy (brand new)
 - [Hug](https://github.com/timothycrosley/hug): production ready, similar concepts
 
+#### Async
+
+aiohttp, twisted
+
 
 ### Plotting
 
