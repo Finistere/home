@@ -23,6 +23,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 # Yakuake Skin
 # https://store.kde.org/p/1167641/
+# gruvbox: https://store.kde.org/content/show.php/Breeze+Gruvbox+Dark?content=170824
 
 # Konsole (Gruvbox)
 # https://github.com/morhetz/gruvbox-contrib/tree/master/konsole

@@ -14,6 +14,7 @@ Plug 'neovim/python-client'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'icymind/neosolarized'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -44,7 +45,7 @@ set list                " Show problematic characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
 
-colorscheme NeoSolarized
+colorscheme gruvbox
 
 " ===============
 " *** OPTIONS ***
@@ -85,12 +86,12 @@ set nostartofline       " Do not jump to first character with page commands.
 
 " *** Solarized ***
 set termguicolors
-set background=light
+set background=dark
 
 " ===============
 " ***  VARS   ***
 " ===============
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 " ===============
 " *** MAPPING ***
