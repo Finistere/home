@@ -11,6 +11,9 @@ sudo apt-get install zsh
 # Oh My ZSH
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
+# Powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
 
 # Powerline fonts
 # cd
@@ -18,6 +21,11 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # ./fonts/install.sh
 # rm -rf fonts
 
-# Terminix
-# https://github.com/gnunn1/terminix
+# Yakuake Skin
+# https://store.kde.org/p/1167641/
+
+# Konsole (Gruvbox)
+# https://github.com/morhetz/gruvbox-contrib/tree/master/konsole
+# Env
+# TERM=xterm-256color
 

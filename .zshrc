@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -102,4 +102,14 @@ alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
 # Anaconda3
 export PATH="$HOME/anaconda3/bin:$PATH"
 
+# Virtualenv Wrapper
+#source virtualenvwrapper.sh
+#export WORKON_HOME="$HOME/Envs"
 
+# Powerlevel9k
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir anaconda virtualenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="> "
+POWERLEVEL9K_ANACONDA_BACKGROUND=6
