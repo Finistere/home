@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
 export DEFAULT_USER=brabier
 
