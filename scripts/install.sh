@@ -1,18 +1,25 @@
 #!/bin/bash
+# Ensure that zsh AND nvim are installed before launching the script
+cd
+
+chsh -s $(which zsh) brabier
 
 # Install home git repository
 git clone --bare git@github.com:Finistere/home.git .home
-cd .home
-git remote update
-
-# ZSH
-sudo apt-get install zsh
+git --work-tree=$HOME --git-dir=$HOME/.home checkout remote update
+git --work-tree=$HOME --git-dir=$HOME/.home checkout -f master
 
 # Oh My ZSH
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Powerlevel9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+# Vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+nvim +PlugInstall +qall
 
 
 # Powerline fonts
