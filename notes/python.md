@@ -43,6 +43,12 @@ Libraries
 
 Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([examples](https://wiki.python.org/moin/PythonSpeed/PerformanceTips))
 
+[ArrayFire](https://github.com/arrayfire/arrayfire): Use GPU for array computation
+
+### Deep Learning
+
+[MinPy](https://github.com/dmlc/minpy): NumPy interface aboce [MXNet](https://github.com/dmlc/mxnet). (deep learning framework)
+Pytorch, Keras, Tensorflow, ...
 
 ### Network/Communication
 
