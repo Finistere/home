@@ -1,3 +1,5 @@
+export TERM=xterm-256color
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export DEFAULT_USER=brabier
@@ -107,7 +109,7 @@ export PATH="$HOME/anaconda3/bin:$PATH"
 
 # Powerlevel9k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir anaconda virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
