@@ -77,7 +77,7 @@ aiohttp, twisted
 
 Faster:
 - [PyQtGraph](http://www.pyqtgraph.org/): built on Qt
-- [VisPy](http://vispy.org/index.html): built on OpenGL (GPU-based)
+- [VisPy](http://vispy.org/index.html): built on OpenGL (better than VTK and Mayavi, but not as mature)
 
 More Interactive:
 - [Bokeh](http://bokeh.pydata.org/en/latest/): need to check, seems awesome
