@@ -137,6 +137,8 @@ standard tools: line_profiler, memory_profiler
 #### Stats
 
 [statsmodel](http://www.statsmodels.org/stable/index.html): seems kinda hard to understand ([tutorial](https://tomaugspurger.github.io/modern-7-timeseries.html) ?)
+[tdiget](https://github.com/CamDavidsonPilon/tdigest): effective percentile estimation on streaming data (fast and quite accurate)
+[Welford](https://stackoverflow.com/questions/895929/how-do-i-determine-the-standard-deviation-stddev-of-a-set-of-values): To compute standard deviation on a stream dataset
 
 #### Maths
 
