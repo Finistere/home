@@ -143,3 +143,9 @@ standard tools: line_profiler, memory_profiler
 #### Maths
 
 [SymPy](http://www.sympy.org/en/index.html): Symbolic mathematics
+
+
+
+### Test REST API
+
+Insomnia, Portman, paw...
