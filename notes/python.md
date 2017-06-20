@@ -149,3 +149,6 @@ standard tools: line_profiler, memory_profiler
 ### Test REST API
 
 Insomnia, Portman, paw...
+
+
+[html5-parser](https://github.com/kovidgoyal/html5-parser): fast html5 parser (in C)
