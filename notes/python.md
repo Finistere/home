@@ -151,4 +151,8 @@ standard tools: line_profiler, memory_profiler
 Insomnia, Portman, paw...
 
 
+### Processing and parsing
+
 [html5-parser](https://github.com/kovidgoyal/html5-parser): fast html5 parser (in C)
+
+[libvips](https://github.com/jcupitt/libvips): fast image processing
