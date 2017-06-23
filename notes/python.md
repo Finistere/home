@@ -63,9 +63,11 @@ Pytorch, Keras, Tensorflow, ...
 - [API Star](https://github.com/tomchristie/apista): fast and easy (brand new)
 - [Hug](https://github.com/timothycrosley/hug): production ready, similar concepts
 
+Django, Flask, Tornado
+
 #### Async
 
-aiohttp, twisted
+aiohttp, twisted, tornado
 
 
 ### Plotting
