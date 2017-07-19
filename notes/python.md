@@ -85,7 +85,8 @@ More Interactive:
 - [Bokeh](http://bokeh.pydata.org/en/latest/): need to check, seems awesome
 - [Plotly](https://plot.ly/python/)
 - [bqplot](https://github.com/bloomberg/bqplot)
-- [D3.js](https://github.com/d3/d3) simply using D3 ([tutorial](http://alignedleft.com/tutorials/d3))
+- [D3.js](https://github.com/d3/d3): simply using D3 ([tutorial](http://alignedleft.com/tutorials/d3))
+- [Vaex](https://github.com/maartenbreddels/vaex): for big data (~10^9), designed for exploration
 
 ggpy seems to be paused (rewriting it to be closer to R) or dead ?
 
