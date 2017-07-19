@@ -35,6 +35,11 @@ c.InteractiveShellApp.exec_lines = [
     'import numpy as np',
     'import scipy as sp',
     'import pandas as pd',
+    '%load_ext autoreload',
+    '%autoreload 1',
+    'import matplotlib.pyplot as plt',
+    'import seaborn as sns',
+    'sns.set_style("whitegrid")',
 ]
 
 ## A list of dotted module names of IPython extensions to load.
