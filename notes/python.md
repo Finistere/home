@@ -44,6 +44,7 @@ Libraries
 Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([examples](https://wiki.python.org/moin/PythonSpeed/PerformanceTips))
 
 [ArrayFire](https://github.com/arrayfire/arrayfire): Use GPU for array computation
+[ModernGL](https://github.com/cprogrammer1994/ModernGL): OpenGL with Python (said to be easier than PyOpenGL)
 
 ### Deep Learning
 
@@ -158,4 +159,10 @@ Insomnia, Portman, paw...
 
 [html5-parser](https://github.com/kovidgoyal/html5-parser): fast html5 parser (in C)
 
+[text parsing](https://tomassetti.me/parsing-in-python/): list of tools to create a parser (with grammar)
+
+[Construct](https://github.com/construct/construct): parser and builder for binary data
+
 [libvips](https://github.com/jcupitt/libvips): fast image processing
+
+
