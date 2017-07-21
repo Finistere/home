@@ -44,7 +44,11 @@ Libraries
 Performance tips: [PythonSpeed](https://wiki.python.org/moin/PythonSpeed) ([examples](https://wiki.python.org/moin/PythonSpeed/PerformanceTips))
 
 [ArrayFire](https://github.com/arrayfire/arrayfire): Use GPU for array computation
+
 [ModernGL](https://github.com/cprogrammer1994/ModernGL): OpenGL with Python (said to be easier than PyOpenGL)
+
+[cppyy](https://pypi.python.org/pypi/cppyy/): bindings to C++ code
+
 
 ### Deep Learning
 
