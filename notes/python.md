@@ -31,6 +31,8 @@ Libraries
 
 ### Computing
 
+Cython & Pythran (integrates numpy ! Hell yeah)
+
 [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html) (tools by Continuum Analytics):
 - [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
 - [Odo](https://github.com/blaze/odo): Migrate data efficiently (ex: DataFrame -> Postgres)
