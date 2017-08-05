@@ -1,12 +1,13 @@
 #!/bin/bash
-# Ensure that zsh AND nvim are installed before launching the script
+# Zsh AND neovim needs to be installed
+# Be sure to add your ssh key to github first
 cd
 
 chsh -s $(which zsh) brabier
 
 # Install home git repository
 git clone --bare git@github.com:Finistere/home.git .home
-git --work-tree=$HOME --git-dir=$HOME/.home checkout remote update
+git --work-tree=$HOME --git-dir=$HOME/.home remote update
 git --work-tree=$HOME --git-dir=$HOME/.home checkout -f master
 
 # Oh My ZSH
