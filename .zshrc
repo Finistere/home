@@ -123,3 +123,4 @@ POWERLEVEL9K_VIRTUALENV_BACKGROUND=6
 # Use neovim as default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
