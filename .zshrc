@@ -119,3 +119,8 @@ POWERLEVEL9K_VIRTUALENV_BACKGROUND=6
 
 # Use keychain (Gentoo)
 # eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+
+# Use neovim as default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+

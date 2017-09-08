@@ -76,6 +76,7 @@ Django, Flask, Tornado
 
 aiohttp, twisted, tornado
 
+[uvloop](https://github.com/MagicStack/uvloop): faster replacement for asyncio (~go performance !)
 
 ### Plotting
 
