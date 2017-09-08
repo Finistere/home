@@ -171,4 +171,4 @@ Insomnia, Portman, paw...
 
 [libvips](https://github.com/jcupitt/libvips): fast image processing
 
-
+[serpy](https://serpy.readthedocs.io/en/latest/index.html): pretty fast object -> json serialization (comparable to pickle speed)
