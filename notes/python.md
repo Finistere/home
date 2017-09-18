@@ -112,6 +112,7 @@ standard tools: line_profiler, memory_profiler
 
 [SnakeViz](https://jiffyclub.github.io/snakeviz/#snakeviz): Nice visual profiling (CPU)
 
+[pyprof2calltree](https://github.com/pwaller/pyprof2calltree/): Use Kcachegrind for visualization (with cProfile). It's waaayyy faster than snakeviz for large profiles
 
 ### Software Engineering
 
