@@ -41,7 +41,8 @@ try:
     import seaborn as sns
 except ImportError:
     pass
-sns.set_style("whitegrid")
+else:
+    sns.set_style("whitegrid")
     """,
 ]
 
