@@ -7,31 +7,27 @@ Resources
 
 ### General
 
-[Python-oop](https://github.com/metaperl/python-oop)
-
-[Courses list](http://bafflednerd.com/learn-python-online/)
-
-[Hitchhiker’s Guide](http://docs.python-guide.org/en/latest/)
+- [Python-oop](https://github.com/metaperl/python-oop)
+- [Courses list](http://bafflednerd.com/learn-python-online/)
+- [Hitchhiker’s Guide](http://docs.python-guide.org/en/latest/)
 
 ### Code training
 
-[Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
-
-[100 days of algorithms](https://github.com/coells/100days)
+- [Interactive Coding Challenges](https://github.com/donnemartin/interactive-coding-challenges)
+- [100 days of algorithms](https://github.com/coells/100days)
 
 Libraries
 ---------
 
 ### Tests
 
-[Coverage](https://github.com/nedbat/coveragepy): test code coverage
-[Pylint](https://github.com/PyCQA/pylint): how healthy is a code base ?
-
-[Faker](https://github.com/joke2k/faker): Generate fake data (like address, names, etc...)
+- [Coverage](https://github.com/nedbat/coveragepy): test code coverage
+- [Pylint](https://github.com/PyCQA/pylint): how healthy is a code base ?
+- [Faker](https://github.com/joke2k/faker): Generate fake data (like address, names, etc...)
 
 ### Computing
 
-Cython & Pythran (integrates numpy ! Hell yeah)
+Numba & Pythran (integrates numpy ! Hell yeah)
 
 [Blaze Ecosystem](http://blaze.readthedocs.io/en/latest/index.html) (tools by Continuum Analytics):
 - [Dask](http://dask.pydata.org/en/latest/): integrates well with Numpy & Pandas (compared to Spark)
@@ -79,6 +75,8 @@ aiohttp, twisted, tornado
 [uvloop](https://github.com/MagicStack/uvloop): faster replacement for asyncio (~go performance !)
 
 ### Plotting
+
+[graph gallery](https://python-graph-gallery.com/)
 
 [Matplotlib](http://matplotlib.org/):
 - [Effectively Using Matplotlib](http://pbpython.com/effective-matplotlib.html)
@@ -148,9 +146,10 @@ standard tools: line_profiler, memory_profiler
 
 #### Stats
 
-[statsmodel](http://www.statsmodels.org/stable/index.html): seems kinda hard to understand ([tutorial](https://tomaugspurger.github.io/modern-7-timeseries.html) ?)
-[tdiget](https://github.com/CamDavidsonPilon/tdigest): effective percentile estimation on streaming data (fast and quite accurate)
-[Welford](https://stackoverflow.com/questions/895929/how-do-i-determine-the-standard-deviation-stddev-of-a-set-of-values): To compute standard deviation on a stream dataset
+- [statsmodel](http://www.statsmodels.org/stable/index.html): seems kinda hard to understand ([tutorial](https://tomaugspurger.github.io/modern-7-timeseries.html) ?)
+- [tdiget](https://github.com/CamDavidsonPilon/tdigest): effective percentile estimation on streaming data (fast and quite accurate)
+- [Welford](https://stackoverflow.com/questions/895929/how-do-i-determine-the-standard-deviation-stddev-of-a-set-of-values): To compute standard deviation on a stream dataset
+- [Bounter](https://github.com/RaRe-Technologies/bounter): Efficient counting of elements with low memory foot print (really good approximation)
 
 #### Maths
 
