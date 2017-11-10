@@ -37,7 +37,7 @@ try:
     import numpy as np
     import scipy as sp
     import pandas as pd
-    import matplotlib as plt
+    import matplotlib.pyplot as plt
     import seaborn as sns
 except ImportError:
     pass
