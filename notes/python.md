@@ -114,7 +114,7 @@ standard tools: line_profiler, memory_profiler
 
 ### Software Engineering
 
-[Siringa](https://github.com/h2non/siringa): minimalist depency injection (new)
+[vcrpy](https://github.com/kevin1024/vcrpy): record http requests
 
 [wrapt](https://github.com/GrahamDumpleton/wrapt): create decorators for instance  methods, function, etc.
 
