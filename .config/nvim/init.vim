@@ -88,6 +88,9 @@ set nostartofline       " Do not jump to first character with page commands.
 set termguicolors
 set background=dark
 
+" Issue with Konsole with 'q' appearing with ssh
+set guicursor=
+
 " ===============
 " ***  VARS   ***
 " ===============
