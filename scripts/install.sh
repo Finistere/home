@@ -37,7 +37,7 @@ rm -rf fonts
 
 # Konsole (Gruvbox)
 # https://github.com/morhetz/gruvbox-contrib/tree/master/konsole
-# Installation: download gruxbox file, mv to ~/.local/share/konsole/ and edit profile -> appearance
+# Installation: download gruxbox file, mv to ~/.local/share/konsole/ (konsole) AND .kde/share/apps/konsole (yakuake) and edit profile -> appearance
 # Env
 # TERM=xterm-256color
 
