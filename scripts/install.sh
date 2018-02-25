@@ -41,3 +41,10 @@ rm -rf fonts
 # Env
 # TERM=xterm-256color
 
+# Pyenv installer
+# src: https://github.com/pyenv/pyenv-installer
+curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+pyenv update
+
+# Install zlib
+# Ubuntu: sudo apt-get install zlib1g-dev

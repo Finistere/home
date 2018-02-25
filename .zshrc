@@ -88,20 +88,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# Terminix/Tilix
-# Necessary for Ubuntu (at least) for the split screen
-# (Terminal opens in current folder)
-# https://gnunn1.github.io/terminix-web/manual/vteconfig/
-if [ $TILIX_ID ] || [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
-
-
 # Home git
 alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
-
-# Anaconda3
-export PATH="$HOME/anaconda3/bin:$PATH"
 
 # Virtualenv Wrapper
 #source virtualenvwrapper.sh
@@ -123,4 +111,9 @@ POWERLEVEL9K_VIRTUALENV_BACKGROUND=6
 # Use neovim as default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+# Set up pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
