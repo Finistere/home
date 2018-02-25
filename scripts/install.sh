@@ -47,4 +47,4 @@ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv
 pyenv update
 
 # Install zlib
-# Ubuntu: sudo apt-get install zlib1g-dev
+# Ubuntu: sudo apt-get install python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
