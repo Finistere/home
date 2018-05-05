@@ -1,14 +1,40 @@
-#!/bin/bash
-# Zsh AND neovim needs to be installed
+#!/usr/bin/env bash
+# Install automatically most of the necessary stuff
 # Be sure to add your ssh key to github first
+
+DISTRO=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
+
+### CONFIGURATION ###
+
+
+YAKUAKE=${YAKUAKE:-true}
+# .zshrc supposes pyenv to be installed
+PYENV=${PYENV:-true}
+
+
+if [ "$DISTRO" == "Ubuntu" ]; then
+  # Strict minimum
+  sudo apt-get install zsh curl neovim git fonts-firacode 
+  
+  if [ $YAKUAKE ]; then
+    sudo apt-get install yakuake 
+  fi
+
+  if [ $PYENV ]; then
+    sudo apt-get install python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+  fi
+fi
+
+
+### Installation ###
+
+
+# go to home directory
 cd
 
-chsh -s $(which zsh) brabier
-
-# Install home git repository
-git clone --bare git@github.com:Finistere/home.git .home
-git --work-tree=$HOME --git-dir=$HOME/.home remote update
-git --work-tree=$HOME --git-dir=$HOME/.home checkout -f master
+# Use zsh as default shell
+chsh -s $(which zsh)
 
 # Oh My ZSH
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -22,13 +48,20 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 # Will warn that gruvbox is not installed, just ignore
 nvim +PlugInstall +qall
 
-
 # Powerline fonts
-cd
-git clone https://github.com/powerline/fonts
-./fonts/install.sh
-rm -rf fonts
+# cd
+# git clone https://github.com/powerline/fonts
+# ./fonts/install.sh
+# rm -rf fonts
+
+# Install home git repository
+git clone --bare git@github.com:Finistere/home.git .home
+git --work-tree=$HOME --git-dir=$HOME/.home remote update
+git --work-tree=$HOME --git-dir=$HOME/.home checkout -f master
+
 # Change default font of Konsole as one from powerline
+
+echo "Yakuake & Konsole skins/profile are preinstalled, you only have to select them if necesary"
 
 # Yakuake Skin
 # https://store.kde.org/p/1167641/
@@ -43,8 +76,8 @@ rm -rf fonts
 
 # Pyenv installer
 # src: https://github.com/pyenv/pyenv-installer
-curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-pyenv update
+if [ $PYENV ]; then
+  curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+  pyenv update
+fi
 
-# Install zlib
-# Ubuntu: sudo apt-get install python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
