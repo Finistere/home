@@ -22,7 +22,7 @@ if [ "$DISTRO" == "Ubuntu" ]; then
   fi
 
   if [ $PYENV ]; then
-    sudo apt-get install python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+    sudo apt-get install python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
   fi
 fi
 
