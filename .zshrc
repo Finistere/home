@@ -106,7 +106,9 @@ POWERLEVEL9K_ANACONDA_BACKGROUND=6
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=6
 
 # Connect to keychain
-eval `keychain --quiet --eval id_rsa`
+if [ -x "$(command -v keychain)" ]; then
+  eval `keychain --quiet --eval id_rsa`
+fi
 
 # Use neovim as default editor or vim as a fallback
 if [ -x "$(command -v nvim)" ]; then
