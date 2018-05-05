@@ -15,7 +15,7 @@ PYENV=${PYENV:-true}
 
 if [ "$DISTRO" == "Ubuntu" ]; then
   # Strict minimum
-  sudo apt-get install zsh curl neovim git fonts-firacode 
+  sudo apt-get install zsh curl neovim git fonts-firacode keychain
   
   if [ $YAKUAKE ]; then
     sudo apt-get install yakuake 

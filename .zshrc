@@ -105,19 +105,27 @@ POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="> "
 POWERLEVEL9K_ANACONDA_BACKGROUND=6
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=6
 
-# Use keychain (Gentoo)
-# eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+# Connect to keychain
+eval `keychain --quiet --eval id_rsa`
 
-# Use neovim as default editor
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+# Use neovim as default editor or vim as a fallback
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR=nvim
+elif [ -x "$(command -v vim)" ]; then
+  export EDITOR=vim
+fi
+
+export VISUAL="$EDITOR"
 
 # Set up pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -d "$HOME/.pyenv" ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 alias ipykernel_install='python -m ipykernel install --user --name "$(basename $VIRTUAL_ENV)"'
 # Python configuration options close to the Ubuntu ones
 # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
 alias pyenv_install='PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong" pyenv install'
+
