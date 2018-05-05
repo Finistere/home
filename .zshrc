@@ -128,4 +128,5 @@ alias ipykernel_install='python -m ipykernel install --user --name "$(basename $
 # Python configuration options close to the Ubuntu ones
 # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
 alias pyenv_install='PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong" pyenv install'
+alias ll='ls -alh'
 
