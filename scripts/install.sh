@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Install automatically most of the necessary stuff
 # Be sure to add your ssh key to github first
+set -e
 
 DISTRO=$(awk -F= '/^NAME/{gsub(/"/, "", $2); print $2}' /etc/os-release)
 
