@@ -2,26 +2,28 @@
 # Install automatically most of the necessary stuff
 # Be sure to add your ssh key to github first
 
-DISTRO=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+DISTRO=$(awk -F= '/^NAME/{gsub(/"/, "", $2); print $2}' /etc/os-release)
 
 
 ### CONFIGURATION ###
 
 
 YAKUAKE=${YAKUAKE:-true}
-# .zshrc supposes pyenv to be installed
 PYENV=${PYENV:-true}
 
 
-if [ "$DISTRO" == "Ubuntu" ]; then
+if [ $DISTRO = 'Ubuntu' ]; then
+  echo "Minimal Installation"
   # Strict minimum
   sudo apt-get install zsh curl neovim git fonts-firacode keychain
   
-  if [ $YAKUAKE ]; then
+  if [ "$YAKUAKE" = true ]; then
+    echo "Installing Yakuake"
     sudo apt-get install yakuake 
   fi
 
-  if [ $PYENV ]; then
+  if [ "$PYENV" = true ]; then
+    echo "Installing Pyenv"
     sudo apt-get install python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
   fi
 fi
