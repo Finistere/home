@@ -12,6 +12,9 @@ YAKUAKE=${YAKUAKE:-true}
 PYENV=${PYENV:-true}
 
 
+### System Packages ###
+
+
 if [ $DISTRO = 'Ubuntu' ]; then
   echo "Minimal Installation"
   # Strict minimum
@@ -29,7 +32,7 @@ if [ $DISTRO = 'Ubuntu' ]; then
 fi
 
 
-### Installation ###
+### Custom Installation ###
 
 
 # go to home directory
@@ -78,7 +81,7 @@ echo "Yakuake & Konsole skins/profile are preinstalled, you only have to select 
 
 # Pyenv installer
 # src: https://github.com/pyenv/pyenv-installer
-if [ $PYENV ]; then
+if [ "$PYENV" = true ]; then
   curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
   pyenv update
 fi
