@@ -93,6 +93,7 @@ alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
 alias ll='ls -alh'
 
 # Powerlevel9k
+# Searching for the colors ? try `spectrum_ls`
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs nvm virtualenv anaconda)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
