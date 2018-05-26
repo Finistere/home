@@ -90,10 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Home git
 alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
-
-# Virtualenv Wrapper
-#source virtualenvwrapper.sh
-#export WORKON_HOME="$HOME/Envs"
+alias ll='ls -alh'
 
 # Powerlevel9k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir anaconda virtualenv vcs)
@@ -119,17 +116,43 @@ fi
 
 export VISUAL="$EDITOR"
 
-# Set up pyenv
+# PYTHON
+#========
 if [ -d "$HOME/.pyenv" ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
+
+  pyenv_install() {
+    # Python configuration options close to the Ubuntu ones
+    # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
+    local PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong"
+    pyenv install $*
+  }
+
+  pyenv_mkenv() {
+    local ENV_NAME=${PWD##*/}
+    pyenv virtualenv "$ENV_NAME"
+    pyenv local "$ENV_NAME"
+  }
 fi
 
-alias ipykernel_install='python -m ipykernel install --user --name "$(basename $VIRTUAL_ENV)"'
-# Python configuration options close to the Ubuntu ones
-# Checkout out /usr/lib/pythonX.X/config-XX/Makefile
-alias pyenv_install='PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong" pyenv install'
-alias pyenv_mkenv='ENV_NAME=${PWD##*/}; pyenv virtualenv "$ENV_NAME"; pyenv local "$ENV_NAME"'
-alias ll='ls -alh'
+ipykernel_install() {
+  pip install ipykernel
+  python -m ipykernel install --user --name "$(basename $VIRTUAL_ENV)" 
+}
+
+# NODE 
+#======
+if [ -d "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  nvm_update() {
+    (
+      cd "$NVM_DIR"
+      git fetch --tags origin
+      git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+    ) && \. "$NVM_DIR/nvm.sh"
+  }
+fi
 
