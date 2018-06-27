@@ -94,7 +94,7 @@ alias ll='ls -alh'
 
 # Powerlevel9k
 # Searching for the colors ? try `spectrum_ls`
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs nvm virtualenv anaconda)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs nvm virtualenv anaconda rust_version)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -106,8 +106,8 @@ POWERLEVEL9K_ANACONDA_BACKGROUND=POWERLEVEL9K_VIRTUALENV_BACKGROUND
 POWERLEVEL9K_ANACONDA_FOREGROUND=POWERLEVEL9K_VIRTUALENV_FOREGROUND
 POWERLEVEL9K_NVM_BACKGROUND=0
 POWERLEVEL9K_NVM_FOREGROUND=6
-
-
+POWERLEVEL9K_RUST_VERSION_BACKGROUND=0
+POWERLEVEL9K_RUST_VERSION_FOREGROUND=3
 
 # Connect to keychain
 if [ -x "$(command -v keychain)" ]; then
@@ -161,5 +161,11 @@ if [ -d "$HOME/.nvm" ]; then
       git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
     ) && \. "$NVM_DIR/nvm.sh"
   }
+fi
+
+# RUST
+#======
+if [ -d "$HOME/.cargo" ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
 fi
 

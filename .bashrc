@@ -116,6 +116,6 @@ fi
 alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
 
 # Anaconda3
-export PATH="$HOME/anaconda3/bin:$PATH"
+
 
 
