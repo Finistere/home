@@ -175,3 +175,6 @@ Insomnia, Portman, paw...
 [serpy](https://serpy.readthedocs.io/en/latest/index.html): pretty fast object -> json serialization (comparable to pickle speed)
 
 [metafunctions](https://github.com/ForeverWintr/metafunctions): neat way of creating a pipeline
+
+
+[vibora](https://github.com/vibora-io/vibora): fast http server flask-like
