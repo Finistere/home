@@ -94,7 +94,7 @@ alias ll='ls -alh'
 
 # Powerlevel9k
 # Searching for the colors ? try `spectrum_ls`
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs nvm virtualenv anaconda rust_version)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv anaconda nvm rust_version)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
