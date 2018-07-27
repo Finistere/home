@@ -178,3 +178,9 @@ Insomnia, Portman, paw...
 
 
 [vibora](https://github.com/vibora-io/vibora): fast http server flask-like
+
+
+### UWSGI
+
+http://uwsgi-docs.readthedocs.io/en/latest/Snippets.html#multiple-flask-apps-in-different-mountpoints
+
