@@ -31,7 +31,7 @@ if [ $PACKAGES_INSTALLATION = true ]; then
 
     if [ "$PYENV" = true ]; then
       echo "Installing Pyenv"
-      sudo apt-get install python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+      sudo apt-get install python3-dev python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev
     fi
   fi
 fi
