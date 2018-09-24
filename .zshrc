@@ -1,4 +1,5 @@
 export TERM=xterm-256color
+setopt nohup
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -133,6 +134,7 @@ if [ -d "$HOME/.pyenv" ]; then
   pyenv_install() {
     # Python configuration options close to the Ubuntu ones
     # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
+    local MAKE_OPTS="-j4"
     local PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong"
     pyenv install $*
   }
