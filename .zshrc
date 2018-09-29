@@ -143,6 +143,7 @@ if [ -d "$HOME/.pyenv" ]; then
     local ENV_NAME=${PWD##*/}
     pyenv virtualenv "$ENV_NAME"
     pyenv local "$ENV_NAME"
+    pip install -U setuptools wheel pip
   }
 fi
 
