@@ -8,6 +8,8 @@ export DEFAULT_USER=brabier
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export OS_NAME=$(uname -s)
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -135,7 +137,11 @@ if [ -d "$HOME/.pyenv" ]; then
     # Python configuration options close to the Ubuntu ones
     # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
     local MAKE_OPTS="-j4"
-    local PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong"
+    if [[ $OS_NAME == 'Darwin' ]]; then
+      local PYTHON_CONFIGURE_OPTS='--disable-dependency-tracking --enable-ipv6 --with-system-expat --with-threads --enable-framework=/System/Library/Frameworks --enable-toolbox-glue --with-system-ffi CC=cc CFLAGS="-arch x86_64 -arch i386 -g -O2 -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32" LDFLAGS="-arch x86_64 -arch i386 -Wl,-F."'
+    else
+      local PYTHON_CONFIGURE_OPTS="--enable-shared --with-fpectl --enable-ipv6 --enable-loadable-sqlite-extensions --with-system-expat --with-system-libmpdec --with-system-ffi CC=x86_64-linux-gnu-gcc CFLAGS=-fstack-protector-strong"
+    fi
     pyenv install $*
   }
 
@@ -170,5 +176,11 @@ fi
 #======
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# JENV
+#======
+if [ -d "$HOME/.jenv" ]; then
+  eval "$(jenv init -)"
 fi
 
