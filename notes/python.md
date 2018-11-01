@@ -299,6 +299,7 @@ Tools
   attributes, but never needed it and [dataclasses](https://docs.python.org/3/library/dataclasses.html)
   exists now.
 - [structlog](https://github.com/hynek/structlog): easier logging (used by Warehouse)
+- [whoosh](https://whoosh.readthedocs.io/en/latest/): Lucene in pure Python.
 
 ### Packaging
 
