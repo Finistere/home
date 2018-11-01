@@ -10,6 +10,7 @@ Resources
 - [Python-oop](https://github.com/metaperl/python-oop)
 - [Awesome Python](https://github.com/vinta/awesome-python)
 - [Hitchhiker’s Guide](http://docs.python-guide.org/en/latest)
+- [Python 3 Module of the Week](https://pymotw.com/3/index.html)
 
 
 ### Blogs
