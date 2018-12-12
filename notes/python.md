@@ -161,6 +161,73 @@ to "compile" Numpy to pure C++ which uses among others SIMD instructions, which 
 interesting speedup in some cases, going from 2 up to 16, depending on the targeted CPU architecture 
 and the original algorithm
 
+#### setup
+
+```python
+from Cython.Build import cythonize
+from setuptools import Extension, setup
+
+def generate_extensions():
+    extensions = []
+    for root, _, filenames in os.walk('src'):
+        for filename in filenames:
+            if filename.endswith('.pyx'):
+                path = os.path.join(root, filename)
+                module = path[4:].replace('/', '.').rsplit('.', 1)[0]
+                extensions.append(Extension(module,
+                                            [path],
+                                            language='c++'))
+    return extensions
+
+setup(
+    ext_modules=cythonize(generate_extensions())
+)
+```
+
+#### Coverage
+
+Cython must be compiled with line tracing enabled in each file and when compiling.
+
+```python
+# cython: linetrace=True
+```
+
+```bash
+CYTHON_TRACE=1 setup.py build_ext --inplace
+```
+
+Coverage configuration :
+```buildoutcfg
+# .coveragerc
+[run]
+plugins = Cython.Coverage
+```
+
+#### Debugging
+
+Add `gdb_debug=True` to `cythonize()`
+
+```bash
+cygdb . -- --args python script.py
+```
+
+#### Tricks
+
+Ipython integration :
+```
+%%cython --cplus -a
+```
+
+Header :
+```
+# cython: language_level=3, boundscheck=False, wraparound=False
+```
+
+Use booleans :
+```python
+from libcpp cimport bool
+```
+
 ### Numba
 
 [numba](https://github.com/numba/numba): Generates machine code from Python with LLVM (awesome). Can
