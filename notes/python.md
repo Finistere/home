@@ -22,6 +22,81 @@ Resources
 Tests & QA
 ----------
 
+### Tox
+
+```buildoutcfg
+[tox]
+envlist = manifest,flake8,mypy,py37,coverage-report
+
+
+[testenv]
+; Change current directory to avoid issues with PYTHONPATH
+changedir = {envtmpdir}
+setenv =
+;   Every env has its own coverage file which is later merged in coverage-report.
+    COVERAGE_FILE = {env:COVERAGE_FILE:{toxinidir}/.coverage.{envname}}
+deps =
+    pytest
+    pytest-cov
+commands =
+    pytest {toxinidir}/tests --cov=src --cov-report term-missing:skip-covered --cov-config {toxinidir}/.coveragerc
+
+
+[testenv:mypy]
+changedir = {toxinidir}
+skip_install = True
+deps =
+    mypy
+commands =
+    mypy src --ignore-missing
+
+
+[testenv:flake8]
+changedir = {toxinidir}
+skip_install = True
+deps =
+    flake8
+commands =
+    flake8 src tests
+
+[flake8]
+ignore = F401,W503
+;        F401: X imported but unused (Pycharm does it better)
+;        W503: line break before binary operator (not the best practice)
+max-line-length = 88
+
+
+[testenv:coverage-report]
+changedir = {toxinidir}
+skip_install = True
+setenv =
+    COVERAGE_FILE = .coverage
+deps =
+    coverage
+commands =
+    coverage combine
+    coverage report
+    coverage html
+
+
+[testenv:manifest]
+changedir = {toxinidir}
+skip_install = True
+deps =
+    check-manifest
+commands =
+    check-manifest
+```
+
+### Parallel 
+
+```bash
+pip install pytest-xdist
+```
+```bash
+pytest -n auto
+```
+
 ### Coverage
 
 Based on [Coverage](https://github.com/nedbat/coveragepy). Quick start:
@@ -274,8 +349,9 @@ Cython is usually a good option.
 
 - `socketserver` module to easily create a simple server with sockets.
 
-### sub-processes
+### sub-processes / shell
 
+- [sh](https://github.com/amoffat/sh): Really nice API
 - [Delegator](https://github.com/kennethreitz/delegator.py): better API than `subprocess` and 
   uses [pexpect](https://github.com/pexpect/pexpect) under the hood.
 
