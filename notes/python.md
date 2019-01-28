@@ -19,6 +19,15 @@ Resources
 - https://wesmckinney.com/archives.html: Founder of `pandas`
 
 
+Random Stuff
+------------
+
+```python
+# UTC timestamp
+datetime.utcfromtimestamp(timestamp).replace(tzinfo=timezone.utc)
+```
+
+
 Tests & QA
 ----------
 
@@ -64,6 +73,7 @@ ignore = F401,W503
 ;        F401: X imported but unused (Pycharm does it better)
 ;        W503: line break before binary operator (not the best practice)
 max-line-length = 88
+max-complexity = 10
 
 
 [testenv:coverage-report]
@@ -87,6 +97,8 @@ deps =
 commands =
     check-manifest
 ```
+
+To ignore complexity errors add `# noqa: C901` where the error is reported.
 
 ### Parallel 
 
