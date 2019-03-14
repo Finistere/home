@@ -119,3 +119,7 @@ alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
 
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/brabier/.sdkman"
+[[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"

@@ -1,6 +1,8 @@
 export TERM=xterm-256color
 setopt nohup
 
+emulate sh -c 'source /etc/profile'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export DEFAULT_USER=brabier
@@ -181,4 +183,14 @@ fi
 if [ -d "$HOME/.jenv" ]; then
   eval "$(jenv init -)"
 fi
+
+# SDKMAN
+#========
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/brabier/.sdkman"
+[[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"
+
+# INIT.D
+#========
+for f in ~/.init.d/*.sh; do source $f; done
 
