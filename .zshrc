@@ -192,5 +192,5 @@ export SDKMAN_DIR="/home/brabier/.sdkman"
 
 # INIT.D
 #========
-for f in ~/.init.d/*.sh; do source $f; done
+for f in ~/init.d/*.sh; do source $f; done
 
