@@ -1,7 +1,9 @@
 export TERM=xterm-256color
 setopt nohup
 
-emulate sh -c 'source /etc/profile'
+# export PS4=$'\e[31m+$(%N:%i)>\e[m'
+
+# emulate sh -c 'source /etc/profile'
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -59,7 +61,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python colored-man-pages warhol)
+plugins=(git python colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,10 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# Home git
-alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
-alias ll='ls -alh'
-
 # Powerlevel9k
 # Searching for the colors ? try `spectrum_ls`
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv nvm rust_version)
@@ -112,19 +110,13 @@ POWERLEVEL9K_NVM_FOREGROUND=12
 POWERLEVEL9K_RUST_VERSION_BACKGROUND=0
 POWERLEVEL9K_RUST_VERSION_FOREGROUND=3
 
+alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
+alias ll='ls -alh'
+
 # Connect to keychain
 if [ -x "$(command -v keychain)" ]; then
   eval `keychain --quiet --eval id_rsa`
 fi
-
-# Use neovim as default editor or vim as a fallback
-if [ -x "$(command -v nvim)" ]; then
-  export EDITOR=nvim
-elif [ -x "$(command -v vim)" ]; then
-  export EDITOR=vim
-fi
-
-export VISUAL="$EDITOR"
 
 # PYTHON
 #========
@@ -133,7 +125,7 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 
-  pyenv_install() {
+  pyenv-install() {
     # Python configuration options close to the Ubuntu ones
     # Checkout out /usr/lib/pythonX.X/config-XX/Makefile
     local MAKE_OPTS="-j4"
@@ -145,15 +137,14 @@ if [ -d "$HOME/.pyenv" ]; then
     pyenv install $*
   }
 
-  pyenv_mkenv() {
+  pyenv-mkenv() {
     local ENV_NAME=${PWD##*/}
     pyenv virtualenv $1 "$ENV_NAME"
     pyenv local "$ENV_NAME"
-    pip install -U setuptools wheel pip
   }
 fi
 
-ipykernel_install() {
+ipykernel-install() {
   pip install ipykernel
   python -m ipykernel install --user --name "$(basename $VIRTUAL_ENV)" 
 }
@@ -163,7 +154,7 @@ ipykernel_install() {
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-  nvm_update() {
+  nvm-update() {
     (
       cd "$NVM_DIR"
       git fetch --tags origin
@@ -190,8 +181,15 @@ fi
 export SDKMAN_DIR="/home/brabier/.sdkman"
 [[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"
 
-# INIT.D & BIN
-#==============
-for f in ~/init.d/*.sh; do source $f; done
-export PATH="$PATH:$HOME/bin"
+# Scala
+#=======
+if [ -x "$(command -v scala)" ]; then
+  alias scala-cs="TERM=xterm-color scala -Dscala.color"
+fi
+
+# execute all init.d/* scripts
+if [ -d "$HOME/init.d" ] ; then
+  for f in ~/init.d/*.sh; do source $f; done
+fi
+
 

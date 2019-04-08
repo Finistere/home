@@ -1,22 +1,22 @@
-
 " ===============
 " *** PLUGINS ***
 " ===============
 call plug#begin()
 
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/nerdtree'
+" Plug 'xuyuanp/nerdtree-git-plugin'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neovim/python-client'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'icymind/neosolarized'
 Plug 'morhetz/gruvbox'
+Plug 'pangloss/vim-javascript'
+Plug 'junegunn/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " ===============
 " ***  FUNCT  ***
@@ -116,20 +116,4 @@ endif
 
 " Search and Replace
 nmap <Leader>s :%s//g<Left><Left>
-
-" *** NerdTree ***
-map <C-n> :NERDTreeToggle<CR>
-
-
-" ===============
-" *** AUTOCMD ***
-" ===============
-" *** NerdTree ***
-" Open NERDTree automatically when vim starts up on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" Open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
