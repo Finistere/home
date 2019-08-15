@@ -120,6 +120,11 @@ backup() {
   cp "$1" "$1.backup"
 }
 
+# Connect to keychain
+if [ -x "$(command -v keychain)" ]; then
+  eval `keychain --quiet --eval id_rsa`
+fi
+
 # PYTHON
 #========
 if [ -d "$HOME/.pyenv" ]; then
