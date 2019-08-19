@@ -28,6 +28,11 @@ make modules_install && make install
 genkernel --install initramfs
 ```
 
+### vpnc
+
+Connect: `sudo vpnc [default.conf]`
+Disconnect: `sudo vpnc-disconnect`
+
 
 Hardware
 --------
@@ -44,5 +49,12 @@ Work
 
 [Github](https://github.com/skilion/onedrive)
 [net-mics/onedrive](https://gpo.zugaina.org/net-misc/onedrive) overlay from dlang
+```
+systemctl --user stop onedrive
+rm -r .config/ondrive
+onedrive --synchronize
+systemctl --user enable onedrive
+systemctl --user start onedrive
+```
 
 
