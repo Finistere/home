@@ -1,5 +1,3 @@
-change profile
-
 General upgrade guide: https://wiki.gentoo.org/wiki/Kernel/Upgrade
 
 Gentoo
@@ -15,6 +13,19 @@ Software
 emerge --sync
 # Update everything
 emerge -aquDU --keep-going --with-bdeps=y @world
+```
+
+### Kernel
+
+```
+cd /usr/src/linux
+make menuconfig
+make -j5
+make modules_install && make install
+```
+
+```
+genkernel --install initramfs
 ```
 
 
