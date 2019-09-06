@@ -2,6 +2,7 @@
 !.gitignore
 !.bashrc
 !.zshrc
+!.zprofile
 
 # Config
 !.config/
