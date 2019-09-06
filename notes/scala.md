@@ -43,3 +43,25 @@ private def snakify(str: String): String = {
 }
 ```
 
+local infos:
+```
+def getListOfFiles(dir: String):List[File] = {
+    val d = new File(dir)
+    if (d.exists && d.isDirectory) {
+      d.listFiles.filter(_.isFile).toList
+    } else {
+      List[File]()
+    }
+  }
+
+  def printInfos(): Unit = {
+    import scala.collection.JavaConversions._
+    val p = System.getProperties
+    p.keys.toSeq.asInstanceOf[Seq[String]].sorted.foreach(key => {
+      val value = p.get(key).asInstanceOf[String]
+      System.out.println(key + ": " + value)
+    })
+    val cwdir = System.getProperty("user.dir");
+    println(getListOfFiles( cwdir).map(_.toString.replace(cwdir, "")).mkString("\n"))
+  }
+```
