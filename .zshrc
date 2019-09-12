@@ -113,6 +113,7 @@ POWERLEVEL9K_RUST_VERSION_BACKGROUND=0
 POWERLEVEL9K_RUST_VERSION_FOREGROUND=3
 
 alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
+alias work='git --work-tree=$HOME --git-dir=$HOME/.work'
 alias ll='ls -alh'
 
 backup() {
