@@ -195,9 +195,4 @@ if [ -x "$(command -v scala)" ]; then
   alias scala-cs="TERM=xterm-color scala -Dscala.color"
 fi
 
-# execute all init.d/* scripts
-if [ -d "$HOME/init.d" ] ; then
-  for f in ~/init.d/*.sh; do source $f; done
-fi
-
 
