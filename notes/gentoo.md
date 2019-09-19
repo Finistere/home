@@ -28,10 +28,20 @@ make modules_install && make install
 genkernel --install initramfs
 ```
 
-### vpnc
+### Network
 
-Connect: `sudo vpnc [default.conf]`
+#### VPN
+With a `/etc/vpnc/work.conf` having all the configuration.
+Connect: `sudo vpnc work`
 Disconnect: `sudo vpnc-disconnect`
+
+DNS can be retrieved through `systemd-resolved`. But it didn't worked very well...
+Using `net-vpn/networkmanager-vpnc` and using the GUI worked.
+
+### Monitoring
+
+net-analyzer/nethogs
+htop
 
 
 Hardware
@@ -41,6 +51,20 @@ Hardware
 
 [Handbook](https://wiki.gentoo.org/wiki/Bluetooth#Device_pairing)
 
+### Ethernet
+
+Add a connection with `nmtui`
+Add 802.1x security with `nmcli`:
+```
+nmcli con edit CON_NAME
+nmcli> set 802-1x.eap peap
+nmcli> set 802-1x.identity USER
+nmcli> set 802-1x.phase2-auth mschapv2
+nmcli> set 802-1x.ca-cert file:///home/brabier/certificates/ROOT.cer
+nmcli> save
+nmcli> quit
+```
+Start a new connection with `nmcli con up CON_NAME --ask`
 
 Work
 ----
@@ -57,4 +81,18 @@ systemctl --user enable onedrive
 systemctl --user start onedrive
 ```
 
+### Kerberos
+
+Add `kerberos` flag.
+Setup SSH config in `~/.ssh/config`:
+```
+host *.domain
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+```
+Add same domains to Firefoxi (about:config):
+```
+etwork.negotiate-auth.delegation-uris --> .domain
+network.negotiate-auth.trusted-uris    --> .domain
+```
 
