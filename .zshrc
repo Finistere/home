@@ -1,6 +1,8 @@
 export TERM=xterm-256color
 setopt nohup
 
+export PATH="$HOME/bin:$PATH"
+
 # export PS4=$'\e[31m+$(%N:%i)>\e[m'
 
 # emulate sh -c 'source /etc/profile'

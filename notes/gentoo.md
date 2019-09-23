@@ -43,6 +43,10 @@ Using `net-vpn/networkmanager-vpnc` and using the GUI worked.
 net-analyzer/nethogs
 htop
 
+### PDF utilities
+
+`app-text/poppler` -> pdfunite
+
 
 Hardware
 --------
