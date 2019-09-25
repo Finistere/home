@@ -38,14 +38,20 @@ Disconnect: `sudo vpnc-disconnect`
 DNS can be retrieved through `systemd-resolved`. But it didn't worked very well...
 Using `net-vpn/networkmanager-vpnc` and using the GUI worked.
 
-### Monitoring
+### Utilities
+
+#### PDF
+
+`app-text/poppler` -> pdfunite
+
+#### Monitoring
 
 net-analyzer/nethogs
 htop
 
-### PDF utilities
+#### Command line
 
-`app-text/poppler` -> pdfunite
+treeify -> `cargo install treeify`
 
 
 Hardware
@@ -77,6 +83,7 @@ Work
 
 [Github](https://github.com/skilion/onedrive)
 [net-mics/onedrive](https://gpo.zugaina.org/net-misc/onedrive) overlay from dlang
+
 ```
 systemctl --user stop onedrive
 rm -r .config/ondrive
