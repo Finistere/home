@@ -6,6 +6,10 @@ Gentoo
 Software
 --------
 
+### Systemd
+
+Change default app kill timeout in `/etc/systemd/system.conf` to for example `DefaultTimeoutStopSec=10s`
+
 ### Emerge
 
 ```bash
