@@ -97,6 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+# Use neovim as default editor or vim as a fallback
+if [ -x "$(command -v nvim)" ]; then
+  export EDITOR=nvim
+elif [ -x "$(command -v vim)" ]; then
+  export EDITOR=vim
+fi
+
+export VISUAL="$EDITOR"
+
+
 # Powerlevel9k
 # Searching for the colors ? try `spectrum_ls`
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv nvm rust_version)
