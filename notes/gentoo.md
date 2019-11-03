@@ -21,6 +21,7 @@ emerge -aquDU --keep-going --with-bdeps=y @world
 
 ### Kernel
 
+Changing the configuration :
 ```
 cd /usr/src/linux
 make menuconfig
@@ -28,9 +29,26 @@ make -j5
 make modules_install && make install
 ```
 
+
+Updating the kernel
 ```
+# Backup config
+cp /usr/src/linux/.config ~/kernel-config-`uname -r`
+eselect kernel set <kernel number>
+ln -sf /usr/src/linux-<NEW> /usr/src/linux
+cp /usr/src/linux-<OLD>/.config /usr/src/linux/.config
+make olddefconfig
 genkernel --install initramfs
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+Genkernel configuration : `/etc/genkernel.conf`
+This should be activated:
+```
+LVM="yes"
+LUKS="yes"
+```
+
 
 ### Network
 
