@@ -24,7 +24,7 @@ emerge -aquDU --keep-going --with-bdeps=y @world
 Changing the configuration :
 ```
 cd /usr/src/linux
-make menuconfig
+ake MENUCONFIG_COLOR=blackbg menuconfig
 make -j5
 make modules_install && make install
 ```
