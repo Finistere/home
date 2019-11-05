@@ -29,6 +29,10 @@ make -j5
 make modules_install && make install
 ```
 
+docker
+```
+/usr/bin/dockerd -H unix://
+```
 
 Updating the kernel
 ```
@@ -42,12 +46,34 @@ genkernel --install initramfs
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+If changing the kernel, re-build the modules:
+```
+emerge -aq @module-rebuild
+```
+
 Genkernel configuration : `/etc/genkernel.conf`
 This should be activated:
 ```
 LVM="yes"
 LUKS="yes"
 ```
+### Docker
+
+Run docker without systemd to check for errors :
+```
+/usr/bin/dockerd -H unix://
+```
+
+Had to add tons of modules for the kernel, probably a lot which aren't necessary (zfs, brtfs, etc...)
+
+Necessary (?):
+- kernel options `systemd.legacy_systemd_cgroup_controller=yes`
+- systemd flag `sys-apps/systemd cgroup-hybrid`
+
+Using docker with `overlay -device-mapper`
+Checking kernel configuration: `/usr/share/docker/contrib/check-config.sh`
+Had to use `cgroupfs-mount` from https://github.com/tianon/cgroupfs-mount (pointed out by the script above)
+Had to use AUFS kernel, not sure if really necessary though, as docker seems to use overlay now. Unsure.
 
 
 ### Network

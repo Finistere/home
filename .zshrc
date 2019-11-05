@@ -128,14 +128,6 @@ alias home='git --work-tree=$HOME --git-dir=$HOME/.home'
 alias work='git --work-tree=$HOME --git-dir=$HOME/.work'
 alias ll='ls -alh'
 
-backup() {
-  cp "$1" "$1.backup"
-}
-
-# Connect to keychain
-if [ -x "$(command -v keychain)" ]; then
-  eval `keychain --quiet --eval id_rsa`
-fi
 
 # PYTHON
 #========
@@ -205,6 +197,16 @@ export SDKMAN_DIR="/home/brabier/.sdkman"
 #=======
 if [ -x "$(command -v scala)" ]; then
   alias scala-cs="TERM=xterm-color scala -Dscala.color"
+fi
+
+if [ -d "$HOME/vertica" ]; then
+  export PATH="$HOME/vertica/vertica-client/bin:$PATH"
+fi
+
+
+# Connect to keychain
+if [ -x "$(command -v keychain)" ]; then
+  eval `keychain --quiet --eval id_rsa`
 fi
 
 
