@@ -75,6 +75,20 @@ Checking kernel configuration: `/usr/share/docker/contrib/check-config.sh`
 Had to use `cgroupfs-mount` from https://github.com/tianon/cgroupfs-mount (pointed out by the script above)
 Had to use AUFS kernel, not sure if really necessary though, as docker seems to use overlay now. Unsure.
 
+Systemd disables IP forwarding by default, had to explicitly activate it :
+```
+net.ipv4.ip_forward=1
+net.ipv6.conf.default.forwarding=1
+net.ipv6.conf.all.forwarding=1
+```
+
+### Systemd
+
+Increase inotify limit for IDEs:
+```
+fs.inotify.max_user_watches = 524288
+```
+
 
 ### Network
 
