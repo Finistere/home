@@ -116,6 +116,14 @@ htop
 treeify -> `cargo install treeify`
 
 
+#### GDB
+
+Check out [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard):
+```
+wget -P ~ https://git.io/.gdbinit
+pip install pygments
+```
+
 Hardware
 --------
 
