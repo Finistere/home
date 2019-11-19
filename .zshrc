@@ -161,6 +161,11 @@ ipykernel-install() {
   python -m ipykernel install --user --name "$(basename $VIRTUAL_ENV)" 
 }
 
+jupyter-notebook() {
+  cd ~/notebooks
+  nohup jupyter notebook &>/dev/null &
+}
+
 # NODE 
 #======
 if [ -d "$HOME/.nvm" ]; then
@@ -187,12 +192,6 @@ if [ -d "$HOME/.jenv" ]; then
   eval "$(jenv init -)"
 fi
 
-# SDKMAN
-#========
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/brabier/.sdkman"
-[[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"
-
 # Scala
 #=======
 if [ -x "$(command -v scala)" ]; then
@@ -208,5 +207,11 @@ fi
 if [ -x "$(command -v keychain)" ]; then
   eval `keychain --quiet --eval id_rsa`
 fi
+
+# SDKMAN
+#========
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"
 
 
