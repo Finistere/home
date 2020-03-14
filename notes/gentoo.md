@@ -24,7 +24,7 @@ emerge -aquDU --keep-going --with-bdeps=y @world
 Changing the configuration :
 ```
 cd /usr/src/linux
-ake MENUCONFIG_COLOR=blackbg menuconfig
+make MENUCONFIG_COLOR=blackbg menuconfig
 make -j5
 make modules_install && make install
 ```
@@ -41,8 +41,8 @@ cp /usr/src/linux/.config ~/kernel-config-`uname -r`
 eselect kernel set <kernel number>
 ln -sf /usr/src/linux-<NEW> /usr/src/linux
 cp /usr/src/linux-<OLD>/.config /usr/src/linux/.config
-make olddefconfig
-genkernel --install initramfs
+make syncconfig
+genkernel --install initramfs --kernel-config=/usr/src/linux/.config
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
