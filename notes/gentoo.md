@@ -60,7 +60,7 @@ LUKS="yes"
 
 GRUB configuration : `/etc/default/grub`
 ```
-GRUB_CMDLINE_LINUX="dolvm crypt_root=UUID=1623c4d0-d1cc-48ed-adf6-89cf28598e8a init=/usr/lib/systemd/systemd systemd.legacy_systemd_cgroup_controller=yes"
+GRUB_CMDLINE_LINUX="dolvm crypt_root=UUID=<DISK UID> init=/usr/lib/systemd/systemd systemd.legacy_systemd_cgroup_controller=yes"
 ```
 
 ### Docker
