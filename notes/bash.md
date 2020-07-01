@@ -7,6 +7,14 @@ get dir of the script:
 DIR="$(dirname "$(readlink -f "$0")")"
 ```
 
+multiline variable:
+```bash
+multi_line="$(cat <<- EOM
+
+EOM
+)"
+```
+
 ### Argumnents
 
 Simple
@@ -59,4 +67,13 @@ while getopts ":hc:d:v" opt; do
 done
 shift $((OPTIND -1))
 POSITIONAL_ARG="$1"
+```
+
+### Checks
+
+```bash
+[ -f "file" ]
+[ -e "any kind of file" ]
+[ -L "symlink ]
+[ -d "directory ]
 ```
