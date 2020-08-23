@@ -298,6 +298,8 @@ Add `gdb_debug=True` to `cythonize()`
 cygdb . -- --args python script.py
 ```
 
+Install https://github.com/cyrus-and/gdb-dashboard for a better gdb
+
 #### Tricks
 
 Ipython integration :

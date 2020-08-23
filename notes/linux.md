@@ -6,4 +6,7 @@
 
   lsof -i -a -p $PID
 
+### GDB
+
+https://github.com/cyrus-and/gdb-dashboard
 

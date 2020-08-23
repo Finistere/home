@@ -17,6 +17,32 @@ hdfs-size () {
 Parquet
 -------
 
+### parquet-hadoop
+
+Parameters:
+
+- `parquet.block.size`: row group size, parquet will try its best to not go above that threshold.
+- `parquet.page.size`: page size, used for compression.
+- `paruqet.dictionnary.page.size`: page size used for the dictionnary. It is always encoded in `PLAIN`, so with v2 writer it can be harmful. i
+  I suggest keeping it lower than page size
+- `parquet.writer.version`: Use v2 whenever possible, biggest difference is for binary which was encoded with `PLAIN` and now with `DELTA_BYTE_ARRAY`. i
+  Even with zstd, it's 11-2% storage gained.
+- `parquet.compression`: Use zstd whenever possible.
+
+Parquet hadoop tries to respect the specified row group size by computing regularly the current size of the data of each column. This is calculated through:
+
+```
+Size<repetition level> + Size<definition level> + Size<buffered data> + Size<written pages>
+```
+
+- For repetition and definition level, RLE is used, so it's quite accurate to what will actually be written.
+- buffered data takes into account Parquet's encoding, but not the compression which is only done when writing the page
+- written pages have the actual disk size.
+
+So when specifying `parquet.block.size`, `parquet.page.size` has an impact as it dictates how much data will be at maximum in the buffer. Knowing that one can expect
+a factor of 2 with the compression, row groups can be a lot smaller than expected with bigger page sizes.
+
+
 ### parquet-tools
 
 #### build locally
