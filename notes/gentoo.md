@@ -14,9 +14,11 @@ Change default app kill timeout in `/etc/systemd/system.conf` to for example `De
 
 ```bash
 # Update repositories
-emerge --sync
+emerge --sync -q
 # Update everything
-emerge -aquDU --keep-going --with-bdeps=y @world
+emerge -aquDU --quiet-build --quiet-fail --keep-going --with-bdeps=y @world
+# Clean-up afterwards (Be sure to have compiled new kernel before)
+emerge -a --depclean
 ```
 
 ### Kernel
@@ -29,11 +31,6 @@ make -j5
 make modules_install && make install
 ```
 
-docker
-```
-/usr/bin/dockerd -H unix://
-```
-
 Updating the kernel
 ```
 # Backup config
@@ -42,6 +39,8 @@ eselect kernel set <kernel number>
 ln -sf /usr/src/linux-<NEW> /usr/src/linux
 cp /usr/src/linux-<OLD>/.config /usr/src/linux/.config
 make syncconfig
+make -j5
+make modules_install && make install
 genkernel --install initramfs --kernel-config=/usr/src/linux/.config
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -157,6 +156,8 @@ Work
 
 ### Onedrive
 
+Barely works...
+
 [Github](https://github.com/skilion/onedrive)
 [net-mics/onedrive](https://gpo.zugaina.org/net-misc/onedrive) overlay from dlang
 
@@ -181,5 +182,13 @@ Add same domains to Firefoxi (about:config):
 ```
 etwork.negotiate-auth.delegation-uris --> .domain
 network.negotiate-auth.trusted-uris    --> .domain
+```
+
+### RDP
+
+Install freerdp
+
+```
+xfreerdp +clipboard /v:<host> /u:<account> /audio-mode:1 /size:<WxH>
 ```
 
