@@ -132,6 +132,46 @@ pip install pygments
 Hardware
 --------
 
+### Ergodox EZ
+
+Setup:
+```
+cd
+git clone https://github.com/zsa/qmk_firmware.git
+pip install qmk
+
+# Used the salfter overlay for teensy_loader_cli
+emerge -a dev-embedded/avrdude dev-embedded/teensy_loader_cli
+
+# Additional udev rules are necessary to flash the Keyboard as user
+wget https://www.pjrc.com/teensy/49-teensy.rules
+# read carefully whats in it !! and follow instructions
+# update udev rules
+udevadm control --reload-rules
+udevadm trigger
+
+# create a crossdev-specific overlay !
+# https://wiki.gentoo.org/wiki/Custom_ebuild_repository#Crossdev
+crossdev -s4 --stable --g \<9 --portage --verbose --target avr
+
+cd
+git clone https://github.com/zsa/qmk_firmware.git
+pip install qmk
+# will warn for some missing dependencies, can be ignored but do
+# retrieve the submodules !
+qmk setup
+
+```
+
+Updating Keyboard
+```
+# Download new Keyboard from Oryx
+unzip -o ~/Downloads/XXXXXX.zip -d /tmp/ergodox
+cp /tmp/ergodox/ergodox_ez_finistere_source/* ~/qmk_firmware/keyboards/ergodox_ez/keymaps/finistere
+cd ~/qmk_firmware
+make ergodox_ez:finistere:flash
+```
+
 ### Bluetooth
 
 [Handbook](https://wiki.gentoo.org/wiki/Bluetooth#Device_pairing)
