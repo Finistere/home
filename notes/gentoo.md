@@ -1,5 +1,3 @@
-General upgrade guide: https://wiki.gentoo.org/wiki/Kernel/Upgrade
-
 Gentoo
 ======
 
@@ -16,12 +14,14 @@ Change default app kill timeout in `/etc/systemd/system.conf` to for example `De
 # Update repositories
 emerge --sync -q
 # Update everything
-emerge -aquDU --quiet-build --quiet-fail --keep-going --with-bdeps=y @world
+emerge -auDU --quiet-build --quiet-fail --keep-going --with-bdeps=y @world
 # Clean-up afterwards (Be sure to have compiled new kernel before)
 emerge -a --depclean
 ```
 
 ### Kernel
+
+General upgrade guide: https://wiki.gentoo.org/wiki/Kernel/Upgrade
 
 Changing the configuration :
 ```
