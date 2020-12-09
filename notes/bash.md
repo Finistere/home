@@ -1,5 +1,24 @@
 Shell scripts
--------------
+=============
+
+Commands
+--------
+
+### xargs
+
+```
+xargs -n 1 -P 10 -I {} bash -c 'command $1 $2' _ "first argument" {}
+```
+
+
+Utilities
+---------
+
+escaping `'`:
+
+```
+echo 'I'\''am back'
+```
 
 get dir of the script:
 
@@ -7,15 +26,30 @@ get dir of the script:
 DIR="$(dirname "$(readlink -f "$0")")"
 ```
 
-multiline variable:
+multiline string:
 ```bash
 multi_line="$(cat <<- EOM
 
 EOM
 )"
+
+cat <<- EOM >> "file"
+
+EOM
 ```
 
-### Argumnents
+### Checks
+
+```bash
+[ -f "file" ]
+[ -e "any kind of file" ]
+[ -L "symlink ]
+[ -d "directory ]
+command -v 'command'
+```
+
+Argumnents
+----------
 
 Simple
 
@@ -69,11 +103,3 @@ shift $((OPTIND -1))
 POSITIONAL_ARG="$1"
 ```
 
-### Checks
-
-```bash
-[ -f "file" ]
-[ -e "any kind of file" ]
-[ -L "symlink ]
-[ -d "directory ]
-```
