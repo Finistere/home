@@ -194,13 +194,7 @@ fi
 
 # Scala
 #=======
-if [ -x "$(command -v scala)" ]; then
-  alias scala-cs="TERM=xterm-color scala -Dscala.color"
-fi
-
-if [ -d "$HOME/vertica" ]; then
-  export PATH="$HOME/vertica/vertica-client/bin:$PATH"
-fi
+alias scala-cs="TERM=xterm-color scala -Dscala.color"
 
 
 # Connect to keychain
