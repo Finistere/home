@@ -27,6 +27,22 @@ Random Stuff
 datetime.utcfromtimestamp(timestamp).replace(tzinfo=timezone.utc)
 ```
 
+Jupyter Notebook
+----------------
+
+Setup
+```bash
+pip install jupyter
+pip install jupyterthemes
+jt -t grade3 -f firacode -fs 10 -nfs 10 -cellw 95% -T -lineh 130
+```
+
+Add kernel
+```bash
+pip install ipykernel
+python -m ipykernel install --user --name "<NAME>"
+```
+
 
 Tests & QA
 ----------
