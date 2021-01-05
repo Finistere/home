@@ -131,6 +131,10 @@ reboot
 System
 ------
 
+### Hardware
+
+Use the hardware channel: https://github.com/NixOS/nixos-hardware
+
 ### Desktop
 
 ```nix
