@@ -143,6 +143,8 @@ fi
 #========
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]] && source "/home/brabier/.sdkman/bin/sdkman-init.sh"
+if [ -s "/home/brabier/.sdkman/bin/sdkman-init.sh" ]; then
+  source "/home/brabier/.sdkman/bin/sdkman-init.sh"
+fi
 
 
