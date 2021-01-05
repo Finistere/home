@@ -106,7 +106,7 @@ nixos-generate-config --root /mnt
 
 6. User configuration
 
-```
+```nix
 {
   users = {
     mutableUsers = false;
