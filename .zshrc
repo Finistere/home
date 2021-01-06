@@ -38,7 +38,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -136,7 +136,9 @@ alias scala-cs="TERM=xterm-color scala -Dscala.color"
 
 # Connect to keychain
 if [ -x "$(command -v keychain)" ]; then
-  eval `keychain --quiet --eval id_rsa`
+  for key in $(ls ~/.ssh/id_* | grep -v -F '.pub'); do
+    eval `keychain --quiet --nogui --eval $(basename $key)`
+  done
 fi
 
 # SDKMAN
