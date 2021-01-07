@@ -159,3 +159,64 @@ Use the hardware channel: https://github.com/NixOS/nixos-hardware
   time.timeZone = "Europe/Paris";
 }
 ```
+
+Devlopment
+----------
+
+Create isolated environments with direnv and nix-shell:
+
+```bash
+nix-env -iA nixos.direnv
+```
+
+Create a `.envrc` in the project root. This will activate a nix-shell automatically:
+
+```
+use_nix
+```
+
+One only need to activate it once with `direnv allow .` and create the `shell.nix`:
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  nativeBuildInputs = [];
+  shellHook = ''
+  '';
+}
+```
+
+
+### Python
+
+Here is the `shell.nix` for Antidote:
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  nativeBuildInputs = [
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.python39
+    pkgs.python39Packages.virtualenv
+    pkgs.python36
+    pkgs.python37
+    pkgs.python38
+    pkgs.pypy3
+  ];
+  shellHook = ''
+    # set SOURCE_DATE_EPOCH so that we can use python wheels
+    SOURCE_DATE_EPOCH=$(date +%s)
+    # Create venv if it does not exist yet.
+    if [[ ! -d .venv ]]; then
+      virtualenv -q .venv
+      source ./.venv/bin/activate
+      pip install -r requirements/dev.txt
+    else
+      source ./.venv/bin/activate
+    fi;
+  '';
+}
+```
