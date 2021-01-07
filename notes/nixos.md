@@ -109,7 +109,7 @@ nixos-generate-config --root /mnt
 ```nix
 {
   users = {
-    mutableUsers = false;
+    mutableUsers = false;  # Added it after user-creation
     users.brabier = {
       isNormalUser = true;
       uid = 1000;
@@ -133,7 +133,32 @@ System
 
 ### Hardware
 
+#### Hardware channel
+
 Use the hardware channel: https://github.com/NixOS/nixos-hardware
+
+#### Firmware update
+
+```nix
+{
+  services.fwupd.enable = true;
+}
+```
+
+See https://wiki.archlinux.org/index.php/fwupd
+
+```bash
+# List detected devices
+fwupdmgr get-devices
+# Load latest metadata
+fwupdmgr refresh
+# List available updates
+fwupdmgr get-updates
+# Install updates
+fwupdmgr update
+```
+
+During reboot, had to select booting device "Linux Firmware Update" for the updates, or some at least, to be applied.
 
 ### Desktop
 
