@@ -1,4 +1,4 @@
-NixOs
+NixOS
 =====
 
 Installation
