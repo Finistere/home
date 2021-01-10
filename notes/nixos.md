@@ -113,13 +113,13 @@ nixos-generate-config --root /mnt
 ```nix
 {
   users = {
-    mutableUsers = false;  # Added it after user-creation
+    mutableUsers = false;
     users.brabier = {
       isNormalUser = true;
       uid = 1000;
-      hashedPassword = "";  # create me later with `mkpasswd -m sha-512`
+      hashedPassword = "";  # create me `mkpasswd -m sha-512` in the livecd
       home = "/home/brabier";
-      extraGroups = [ "wheel" "networkmanager" "audio"];
+      extraGroups = [ "wheel" "networkmanager" "audio"];  # wheel gives sudo access
     };
   };
 }
@@ -189,8 +189,22 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
 }
 ```
 
+#### Auto-login
 
-### Zsh
+Didn't worked at first try, may need to login manually first ?
+
+```nix
+{
+  services.xserver.displayManager.autoLogin = {
+    enable = true;
+    user = "X";
+  };
+}
+```
+
+#### Shell
+
+Use zsh by default for everyone, with a decent red prompt.
 
 ```nix
 {
