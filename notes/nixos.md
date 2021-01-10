@@ -80,6 +80,8 @@ nixos-generate-config --root /mnt
     efiSupport = true;
     enableCryptodisk = true; 
   };
+  # Automatically open encrypted partition in the initramfs, we already gave the password
+  # in GRUB, no need to do it twice. And with LUKS1 with the key is accessible to any user anyway.
   boot.initrd = {
     secrets = {
       "cryptroot.keyfile" = "/etc/secrets/initrd/cryptroot.keyfile";
@@ -92,6 +94,8 @@ nixos-generate-config --root /mnt
       };
     };
   };
+  
+  # Not really necessary as it should be included in hardware-configuration.nix
   fileSystems = {
     "/".label = "ROOT";
     "/boot/efi" = {
@@ -182,6 +186,26 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
   
   # Correct timezone
   time.timeZone = "Europe/Paris";
+}
+```
+
+
+### Zsh
+
+```nix
+{
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh = {
+    enable = true;
+    promptInit = ''
+      # Note that to manually override this in ~/.zshrc you should run `prompt off`
+      # before setting your PS1 and etc. Otherwise this will likely to interact with
+      # your ~/.zshrc configuration in unexpected ways as the default prompt sets
+      # a lot of different prompt variables.
+      autoload -U promptinit && promptinit && prompt walters && setopt prompt_sp
+      export PROMPT='%F{red}%B%(?..[%?] )%b%n@%U%m%u:%~ > %f'
+    '';
+  };
 }
 ```
 
