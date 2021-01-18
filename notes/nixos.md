@@ -174,6 +174,12 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
 }
 ```
 
+
+```bash
+# Accept EULA at https://www.displaylink.com/downloads/ubuntu and copy download URL
+nix-prefetch-url --name displaylink.zip <URL>
+```
+
 ```bash
 xrandr --setprovideroutputsource 1 0  # first monitor
 xrandr --setprovideroutputsource 2 0  # second monitor
