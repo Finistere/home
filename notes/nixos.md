@@ -169,20 +169,34 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
 
 ```nix
 {
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  # Display-link is not free
   nixpkgs.config.allowUnfree = true;
+  # May help with CPU usage and Slack ?
+  # https://support.displaylink.com/knowledgebase/articles/1843660-screen-freezes-after-opening-an-application-only
+  boot.extraModprobeConfig = ''
+    options evdi initial_device_count=2
+  '';
+  services.xserver = {
+    videoDrivers = [ "displaylink" "modesetting" ];
+    displayManager.sessionCommands = ''
+        # Add second display link monitor
+        ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+      '';
+  }
 }
 ```
-
 
 ```bash
 # Accept EULA at https://www.displaylink.com/downloads/ubuntu and copy download URL
 nix-prefetch-url --name displaylink.zip <URL>
+nixos-rebuild switch
 ```
 
 ```bash
+# Activate immediately
 xrandr --setprovideroutputsource 1 0  # first monitor
 xrandr --setprovideroutputsource 2 0  # second monitor
+xrandr --auto
 ```
 
 Source: 
