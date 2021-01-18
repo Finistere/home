@@ -164,6 +164,24 @@ fwupdmgr update
 
 During reboot, had to select booting device "Linux Firmware Update" for the updates, or some at least, to be applied.
 
+
+#### Display Link
+
+```nix
+{
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  nixpkgs.config.allowUnfree = true;
+}
+```
+
+```bash
+xrandr --setprovideroutputsource 1 0  # first monitor
+xrandr --setprovideroutputsource 2 0  # second monitor
+```
+
+Source: 
+- https://nixos.wiki/wiki/Displaylink
+
 ### Desktop
 
 ```nix
