@@ -171,18 +171,18 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
 {
   # Display-link is not free
   nixpkgs.config.allowUnfree = true;
-  # May help with CPU usage and Slack ?
-  # https://support.displaylink.com/knowledgebase/articles/1843660-screen-freezes-after-opening-an-application-only
-  boot.extraModprobeConfig = ''
-    options evdi initial_device_count=2
-  '';
   services.xserver = {
     videoDrivers = [ "displaylink" "modesetting" ];
     displayManager.sessionCommands = ''
         # Add second display link monitor
         ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
       '';
-  }
+  };
+  hardware.pulseaudio.extraConfig = ''
+      # Pulseaudio is suspending the dock
+      unload-module module-suspend-on-idle
+    '';
+  };
 }
 ```
 
@@ -201,6 +201,53 @@ xrandr --auto
 
 Source: 
 - https://nixos.wiki/wiki/Displaylink
+
+
+#### Microphone
+
+```nix
+{
+  # Latest Kernel necessary for Sound Open Firmware
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
+  # throttled issue with 5.9
+  # https://github.com/erpalma/throttled/issues/215
+  boot.kernelParams = [ "msr.allow_writes=on" ];
+  # Microphone not properly found, to be checked
+  boot.extraModprobeConfig = ''
+    snd_intel_dspcfg dsp_driver=1
+  '';
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      # Add noise cancellation
+      load-module module-echo-cancel use_master_format=1 aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" 
+    '';
+  };
+}
+```
+
+How to debug:
+```bash
+# Disable pulseaudio in Systemd
+systemctl --user mask pulseaudio.socket
+pulseaudio -k 
+# Do modification
+pulseaudio -D
+pavucontrol
+
+# Disable kernel MOD
+rmmod X
+# Enable
+modprobe X
+
+# list input devices
+arecord -l
+# output
+aplay -l
+# ALSA
+alsamixer
+```
 
 ### Desktop
 
