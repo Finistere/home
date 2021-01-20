@@ -132,6 +132,28 @@ nixos-install
 reboot
 ```
 
+Nix
+---
+
+### Utils
+
+#### Use unstable packages
+
+```bash
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+nix-channel --update
+```
+
+```nix
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
+  environment.systemPackages = with pkgs; [
+    unstable.X
+  ];
+}
+```
+
 System
 ------
 
