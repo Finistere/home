@@ -181,8 +181,7 @@ During reboot, had to select booting device "Linux Firmware Update" for the upda
   hardware.pulseaudio.extraConfig = ''
       # Pulseaudio is suspending the dock
       unload-module module-suspend-on-idle
-    '';
-  };
+  '';
 }
 ```
 
