@@ -209,6 +209,10 @@ cProfile.run('f()', '/tmp/profile')
 The next step is to use [pyprof2calltree](https://github.com/pwaller/pyprof2calltree) to visualize 
 data collected with Kcachegrind.
 
+```bash
+pyprof2calltree -k -i <profile>
+```
+
 If you need more information on a specific function, use 
 [line_profiler](https://github.com/rkern/line_profiler):
 
@@ -217,6 +221,7 @@ If you need more information on a specific function, use
 kernprof -l example.py
 ```
 ```
+%load_ext line_profiler
 %lprun -f function_to_be_profiled foo() 
 ```
 
