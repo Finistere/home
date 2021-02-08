@@ -356,6 +356,24 @@ pkgs.mkShell {
 }
 ```
 
+### Java
+
+```nix
+{ pkgs ? import <nixpkgs> {},
+  unstable ? import <nixos-unstable> {}}:
+
+pkgs.mkShell {
+  nativeBuildInputs = [
+    unstable.jdk
+  ];
+  shellHook = ''
+    ln -sf '${unstable.jdk.home}' .jdk
+  '';
+  JAVA_HOME = "${unstable.jdk.home}";
+}
+
+```
+
 
 ### Python
 
