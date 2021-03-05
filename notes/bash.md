@@ -53,7 +53,8 @@ EOM
 [ -e "any kind of file" ]
 [ -L "symlink ]
 [ -d "directory ]
-command -v 'command'
+[ -x "$(command -v 'command')" ]
+[ -n "${VARIABLE:+1} ]
 ```
 
 Argumnents
