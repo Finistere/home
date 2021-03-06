@@ -203,7 +203,7 @@ import cProfile
 cProfile.run('f()', '/tmp/profile')
 ```
 ```
-%prun -D -q /tmp/profile foo()
+%prun -q -D /tmp/profile foo()
 ```
 
 The next step is to use [pyprof2calltree](https://github.com/pwaller/pyprof2calltree) to visualize 
