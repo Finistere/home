@@ -4,9 +4,9 @@ Shell scripts
 Links
 -----
 
-[Cheatsheet](https://devhints.io/bash)
-[CLI args](http://mywiki.wooledge.org/BashFAQ/035)
-[Colors](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
+- [Cheatsheet](https://devhints.io/bash)
+- [CLI args](http://mywiki.wooledge.org/BashFAQ/035)
+- [Colors](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
 Commands
 --------
