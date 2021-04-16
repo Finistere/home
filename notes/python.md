@@ -191,6 +191,8 @@ exclude =
 Profiling
 ---------
 
+[scalene](https://github.com/plasma-umass/scalene) Looks better than line_profiler & memory_profiler
+
 ### CPU
 
 Use of [cProfile](https://docs.python.org/3/library/profile.html) for most things:
