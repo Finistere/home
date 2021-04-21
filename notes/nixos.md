@@ -21,6 +21,7 @@ quit
 
 ```bash
 # Using LUKS1 for GRUB which does not support LUKS2
+# GRUB 2.06 should support LUKS2 with PBKDF2 at least, so check out latest GRUB version !
 cryptsetup --type luks1 luksFormat /dev/nvme0n1p2
 # Consider backing up the header 
 # WARN: keys stored in the backup will ALWAYS be valid, whether they were removed afterwards or not
