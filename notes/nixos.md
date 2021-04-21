@@ -67,6 +67,7 @@ mkdir -p /mnt/etc/secrets/initrd
 chmod -R 700 /mnt/etc/secrets
 dd bs=1024 count=4 if=/dev/random of=/mnt/etc/secrets/initrd/cryptroot.keyfile iflag=fullblock
 chmod 600 /mnt/etc/secrets/initrd/cryptroot.keyfile
+cryptsetup luksAddKey /dev/nvme0n1p2 /mnt/etc/secrets/initrd/cryptroot.keyfile
 ```
 
 ```nix
