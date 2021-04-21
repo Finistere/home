@@ -26,25 +26,20 @@ cryptsetup --type luks1 luksFormat /dev/nvme0n1p2
 # WARN: keys stored in the backup will ALWAYS be valid, whether they were removed afterwards or not
 # cryptsetup luksHeaderBackup /dev/nvme0n1p2 --header-backup-file /<?>
 cryptsetup luksOpen /dev/nvme0n1p2 cryptroot
-# Create keyfile to unlock to avoid repeating password for GRUB and the initramfs
-mkdir -p /etc/secrets/initrd
-chmod -R 700 /etc/secrets
-dd bs=1024 count=4 if=/dev/random of=/etc/secrets/initrd/cryptroot.keyfile iflag=fullblock
-chmod 600 /etc/secrets/initrd/cryptroot.keyfile
 ```
 
 3. Configure LVM
 
 ```bash
 pvcreate /dev/mapper/cryptroot
-vgcreate vg-nvme /dev/mapper/cryptroot
-lvcreate -L60GB vg-nvme -n root
-lvcreate -L160GB vg-nvme -n home
+vgcreate vg-laptop /dev/mapper/cryptroot
+lvcreate -L60GB vg-laptop -n root
+lvcreate -L160GB vg-laptop -n home
 # 1.5 * RAM with hibernate, 0.5 without.
-lvcreate -L24GB vg-nvme -n swap
-mkfs.ext4 -L ROOT /dev/vg-nvme/root
-mkfs.ext4 -L HOME /dev/vg-nvme/home
-mkswap -L SWAP /dev/vg-nvme/swap
+lvcreate -L24GB vg-laptop -n swap
+mkfs.ext4 -L ROOT /dev/vg-laptop/root
+mkfs.ext4 -L HOME /dev/vg-laptop/home
+mkswap -L SWAP /dev/vg-laptop/swap
 # Not sure why, had to manually format
 mkfs.vfat -n ESP /dev/nvme0n1p1
 # Sanity check
@@ -64,6 +59,14 @@ nixos-generate-config --root /mnt
 ```
 
 5. Boot configuration
+
+```bash
+# Create keyfile to unlock to avoid repeating password for GRUB and the initramfs
+mkdir -p /etc/secrets/initrd
+chmod -R 700 /etc/secrets
+dd bs=1024 count=4 if=/dev/random of=/etc/secrets/initrd/cryptroot.keyfile iflag=fullblock
+chmod 600 /etc/secrets/initrd/cryptroot.keyfile
+```
 
 ```nix
 # /mnt/etc/nixos/configuration.nix
