@@ -62,10 +62,10 @@ nixos-generate-config --root /mnt
 
 ```bash
 # Create keyfile to unlock to avoid repeating password for GRUB and the initramfs
-mkdir -p /etc/secrets/initrd
-chmod -R 700 /etc/secrets
-dd bs=1024 count=4 if=/dev/random of=/etc/secrets/initrd/cryptroot.keyfile iflag=fullblock
-chmod 600 /etc/secrets/initrd/cryptroot.keyfile
+mkdir -p /mnt/etc/secrets/initrd
+chmod -R 700 /mnt/etc/secrets
+dd bs=1024 count=4 if=/dev/random of=/mnt/etc/secrets/initrd/cryptroot.keyfile iflag=fullblock
+chmod 600 /mnt/etc/secrets/initrd/cryptroot.keyfile
 ```
 
 ```nix
