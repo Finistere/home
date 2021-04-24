@@ -388,6 +388,13 @@ Install:
 - [Powerlevel10k font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)
 
 
+
+#### RDP
+
+```bash
+xfreerdp +clipboard /v:<ip address> /u:<email account> /audio-mode:1 /size:1440x1000 /drive:rdp,$HOME/windows
+```
+
 Devlopment
 ----------
 
@@ -466,3 +473,5 @@ pkgs.mkShell {
   '';
 }
 ```
+
+
