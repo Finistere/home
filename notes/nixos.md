@@ -381,6 +381,13 @@ Use zsh by default for everyone, with a decent red prompt.
 }
 ```
 
+Install:
+
+- [Oh My Zsh](https://ohmyz.sh/).
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
+- [Powerlevel10k font](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k)
+
+
 Devlopment
 ----------
 
