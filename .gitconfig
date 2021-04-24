@@ -1,5 +1,5 @@
 [user]
-  name = Benjamin Rabier
+	name = Benjamin Rabier
 
 [push]
   default = simple
@@ -10,5 +10,13 @@
   prompt = false
 [mergetool "vimdiff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [pull]
   ff = only
+
+[rebase]
+  autosquash = true
+
+[alias]
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+

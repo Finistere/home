@@ -13,6 +13,7 @@ Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'junegunn/fzf'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'lnl7/vim-nix'
 
 call plug#end()
 

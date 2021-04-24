@@ -1,0 +1,27 @@
+self: super:
+
+let
+  unstable = import <nixos-unstable> { overlays = []; };
+  jdk15 = unstable.jdk;
+  micronaut = (super.micronaut.overrideAttrs (old: rec {
+    pname = "micronaut-cli";
+    version = "2.3.1";
+    installPhase = ''
+    runHook preInstall
+    rm bin/mn.bat
+    cp -r . $out
+    wrapProgram $out/bin/mn \
+      --prefix JAVA_HOME ${jdk15}
+    installShellCompletion --bash --name mn.bash bin/mn_completion
+    runHook postInstall
+  '';
+    src = super.fetchzip {
+      url = "https://github.com/micronaut-projects/micronaut-starter/releases/download/v${version}/${pname}-${version}.zip";
+      sha256 = "0m9kayv149idc5bmknlwdmjnygy3z70s2b8d6d2kgx568xrspd9m";
+    };
+  })).override { jdk = jdk15; };
+in {
+  jdk = jdk15;
+  micronaut = micronaut;
+  gradle = super.gradle;
+}
