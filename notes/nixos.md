@@ -278,6 +278,8 @@ Source:
 
 #### Microphone
 
+For T14s had to use:
+
 ```nix
 {
   # Latest Kernel necessary for Sound Open Firmware
@@ -289,14 +291,6 @@ Source:
   boot.extraModprobeConfig = ''
     snd_intel_dspcfg dsp_driver=1
   '';
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-    extraConfig = ''
-      # Add noise cancellation
-      load-module module-echo-cancel use_master_format=1 aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" 
-    '';
-  };
 }
 ```
 
@@ -305,7 +299,7 @@ How to debug:
 # Disable pulseaudio in Systemd
 systemctl --user mask pulseaudio.socket
 pulseaudio -k 
-# Do modification
+# Start pulse audio daemon to test
 pulseaudio -D
 pavucontrol
 
@@ -313,7 +307,49 @@ pavucontrol
 rmmod X
 # Enable
 modprobe X
+```
 
+##### Noise cancellation
+
+```nix
+{
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      # Add noise cancellation
+      load-module module-echo-cancel use_master_format=1 aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1\ noise_suppression=1\ high_pass_filter=1\ voice_detection=1" source_master="<MICROPHONE>" sink_master="<SPEAKER>"
+
+    '';
+  };
+}
+```
+
+WebRTC options can be found in the actual source code [webrtc/modules/audio_processing/include/audio_processing.h](https://chromium.googlesource.com/external/webrtc/+/b3b79b611597f44c1d2b29f2d833b6d5928d7a68/webrtc/modules/audio_processing/include/audio_processing.h) (Link may not be up to date)
+
+```bash
+# list of sources (mics)
+pactl list short sources | grep -v ".monitor"
+# list of sinks (speakers)
+pactl list short sinks
+```
+
+Loopback to test microphone
+```
+pactl load-module module-loopback latency_msec=1
+```
+
+How to debug:
+```bash
+# Test configuration
+pactl load-module ...
+
+# 'restart' pulse audio
+pulseaudio -k 
+```
+
+Alsa:
+```bash
 # list input devices
 arecord -l
 # output
@@ -321,6 +357,7 @@ aplay -l
 # ALSA
 alsamixer
 ```
+
 
 ### Desktop
 
