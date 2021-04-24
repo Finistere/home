@@ -137,6 +137,9 @@ nixos-install
 reboot
 ```
 
+Be sure to check BIOS keyboard configuration.
+If SDDM does not start, check GPU drivers (see hardware section).
+
 Nix
 ---
 
@@ -167,6 +170,50 @@ System
 #### Hardware channel
 
 Use the hardware channel: https://github.com/NixOS/nixos-hardware
+
+#### Kernel
+
+Use latest Kernel:
+
+```nix
+{
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+}
+```
+
+#### GPU
+
+###### AMD
+
+```nix
+ {
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.enableRedistributableFirmware = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+}
+```
+
+##### Intel
+
+```nix
+{
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+}
+```
 
 #### Firmware update
 
