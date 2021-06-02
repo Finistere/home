@@ -319,7 +319,6 @@ modprobe X
     extraConfig = ''
       # Add noise cancellation
       load-module module-echo-cancel use_master_format=1 aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1\ noise_suppression=1\ high_pass_filter=1\ voice_detection=1" source_master="<MICROPHONE>" sink_master="<SPEAKER>"
-
     '';
   };
 }
@@ -334,7 +333,13 @@ pactl list short sources | grep -v ".monitor"
 pactl list short sinks
 ```
 
-Loopback to test microphone
+##### remap left to mono L/R
+
+```
+pactl load-module module-remap-source source_name=mono master=<MICROPHONE> master_channel_map=front-left,front-left channel_map=mono,mono
+```
+
+##### Loopback
 ```
 pactl load-module module-loopback latency_msec=1
 ```
