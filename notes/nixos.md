@@ -437,6 +437,24 @@ Install:
 xfreerdp +clipboard /v:<ip address> /u:<email account> /audio-mode:1 /size:1440x1000 /drive:rdp,$HOME/windows
 ```
 
+#### System overly
+
+```nix
+{
+  nixpkgs.overlays = [
+    (self: super: {
+      networkmanager-openvpn = super.networkmanager-openvpn.overrideAttrs (old: rec {
+        name = "NetworkManager-openvpn-1.8.14";
+        src = builtins.fetchurl {
+          url = "https://download-fallback.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.14.tar.xz";
+          sha256 = "e7419053fc3b5a7e25f1a7517c313ad4531b6ea280255524ebb85a70c76fdbeb";
+        };
+      }); 
+    })
+  ];
+}
+```
+
 Devlopment
 ----------
 
