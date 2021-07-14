@@ -534,4 +534,41 @@ pkgs.mkShell {
 }
 ```
 
+For Ibis, inspired from https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/python.section.md
+```nix
+{ pkgs ? import <nixpkgs> {},
+  unstable ? import <nixos-unstable> {}}:
+
+with pkgs;
+let
+  pythonPackages = python39Packages;
+in mkShell rec {
+  venvDir = "./.venv";
+  nativeBuildInputs = [
+    unstable.adoptopenjdk-hotspot-bin-16
+    pythonPackages.python
+    pythonPackages.venvShellHook
+
+    pythonPackages.jupyterlab
+    pythonPackages.grpcio
+
+    gcc
+    gnumake
+  ];
+
+  postVenvCreation = ''
+    pip install -U pip setuptools wheel
+  '';
+
+  postShellHook = ''
+    rm .jdk
+    ln -sf '${unstable.adoptopenjdk-hotspot-bin-16.home}' .jdk
+    PYTHONPATH="$PWD/grpc/build/generated/source/proto/main/python/pelico/ibis/grpc:$PYTHONPATH"
+  '';
+
+  JAVA_HOME = "${unstable.adoptopenjdk-hotspot-bin-16.home}";
+}
+```
+
+
 
